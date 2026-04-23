@@ -185,6 +185,13 @@
   },
   "active": "42d4e6832afc8eac",
   "lastOpenFiles": [
+    "knowledge/README.md",
+    "knowledge/workflow.md",
+    "knowledge/data-points.md",
+    "knowledge/terms.md",
+    "knowledge/voice.md",
+    "knowledge",
+    "CLAUDE.md",
     "internal/15-known-issues-external-archive.md",
     "_scripts/deploy-to-github.command",
     "assets/screenshots/lk/lk-dashboard-wallet.png",
@@ -209,7 +216,6 @@
     "_scripts/compress-screens.py",
     "_scripts/landing-screens.mjs",
     "_scripts",
-    "assets/screenshots/videos",
     "assets/SCREENSHOTS-PLAN.md",
     "_verification/DISCREPANCY-REPORT-2026-04-23.md",
     "_sources/01b-tariffs-actual.md",
@@ -224,12 +230,6 @@
     "external/11-notifications.md",
     "external/09-balance.md",
     "external/08-insurance.md",
-    "external/07-legal.md",
-    "_verification/admin-walkthrough-2026-04-23.md",
-    "_verification/admin-verification-plan.md",
-    "_verification/lk-walkthrough-2026-04-23.md",
-    "_verification/lk-verification-plan.md",
-    "_verification/landing-walkthrough-2026-04-23.md",
-    "_verification/landing-verification-plan.md"
+    "external/07-legal.md"
   ]
 }
