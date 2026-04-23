@@ -1330,3 +1330,45 @@ DISCREPANCY-DECISIONS-2026-04-23.md → «Вопросы команде RSpace»
   (регистрация короткая, требования видны сразу). Оставил оба как
   планировалось в SCREENSHOTS-PLAN.md — можно использовать любой из них
   для акцента на блоке требований.
+
+## 2026-04-23 · Wave 11: GitBook публикация
+
+### Published documentation site
+
+**URL: https://rspace.gitbook.io/rspace-docs/**
+
+- **External space** "Документация для риелторов" → `./external` → default space
+- **Internal space** "Техническая документация (для команды)" → `./internal`
+- Оба засинхронизированы с GitHub через Git Sync (bidirectional)
+
+### Infrastructure
+
+- **Git-repo created:** https://github.com/igoradam-hub/rspace-docs (public)
+- **Git init + commit** добавлены в `/rspace-docs/` (187 файлов, 5.18 MB)
+- **GitBook Cloud:** organization Rspace (`AXievlr1dm3uTPaIaeap`), site_25wGw Ultimate plan
+- **GitBook App** авторизован для igoradam-hub/rspace-docs через installationId `ac83120ffd290c2b960c9e45951bf3cc1e93a123ab938343db68b2a623f7fb44`
+- **site-spaces:** sitesp_ljtDr (external, default) + sitesp_mYJ1l (internal)
+
+### Flow: как обновлять документацию
+
+1. Правка `external/*.md` или `internal/*.md` локально
+2. `git add -A && git commit -m "..." && git push origin main`
+3. GitBook автосинхронизируется (обычно в течение минуты)
+
+**Или двусторонне:** редактирование в GitBook UI → автоcommit в GitHub → синк обратно.
+
+### Scripts added
+
+- `_scripts/deploy-to-github.command` — автопуш на GitHub через gh CLI
+  (инициализирует git, коммитит изменения, создаёт/обновляет remote)
+
+### Новая точка входа
+
+**Для пользователей:** https://rspace.gitbook.io/rspace-docs/
+**Для команды (internal):** тот же URL, переключить space в sidebar dropdown
+
+### .gitignore
+
+- `_scripts/.auth-state.json` (playwright session)
+- `_scripts/.auth-creds.json` (LK + Admin credentials — КРИТИЧНО)
+- `node_modules/`
