@@ -185,6 +185,7 @@
   },
   "active": "42d4e6832afc8eac",
   "lastOpenFiles": [
+    "_scripts/deploy-to-github.command",
     "assets/screenshots/lk/lk-dashboard-wallet.png",
     "assets/screenshots/lk/lk-reset.png",
     "assets/screenshots/lk/lk-password-requirements.png",
@@ -197,7 +198,6 @@
     "assets/screenshots/lk/lk-subscription.png.tmp.png",
     "assets/screenshots/lk/lk-services-shelf.png.tmp.png",
     "assets/screenshots/lk/lk-profile.png.tmp.png",
-    "assets/screenshots/lk/lk-objects-list.png.tmp.png",
     "_scripts/run-screenshots.command",
     "_verification/BUGS-PENDING-2026-04-23.md",
     "_sources/check-types-breakdown.md",
