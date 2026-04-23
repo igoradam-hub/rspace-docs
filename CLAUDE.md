@@ -62,9 +62,16 @@ rspace-docs/
 - **Правильный способ:** двойной клик по `_scripts/deploy-to-github.command` на Mac пользователя. Скрипт использует `gh` CLI (уже залогинен), коммитит изменения и пушит.
 - **Обратная сторона:** если юзер редактирует в GitBook UI, GitBook автоматически делает commit в GitHub. Перед правками локально — сделай `git pull` в Finder'е (или запусти `deploy-to-github.command` — он сначала пулит).
 
-**Публичный URL сайта:** https://rspace.gitbook.io/rspace-docs/
+**Публичный URL сайта:** https://rspace.gitbook.io/rspace-docs/ — **только external space**, internal НЕ публикуется.
+**Internal space (только через auth):** https://app.gitbook.com/o/AXievlr1dm3uTPaIaeap/s/2RzLw8hycrC3nCMygSg7/
 **Админка GitBook:** https://app.gitbook.com/o/AXievlr1dm3uTPaIaeap/sites/site_25wGw
 **GitHub репо:** https://github.com/igoradam-hub/rspace-docs
+
+### ⚠️ Публичный сайт vs Internal
+
+- **Публичный сайт** (`rspace.gitbook.io/rspace-docs/`) показывает **только** external space. Internal НЕ подключен к публичному сайту — пользователи не могут туда попасть через dropdown или ссылки.
+- **Internal space** живёт отдельно в GitBook organization Rspace. Доступ — только у членов workspace (нужна авторизация в GitBook).
+- **Не** вставляй ссылки из external/ на internal/ файлы — это нарушит разделение. Если нужна ссылка, описывай контент прямо в external.
 
 ## Скриншоты
 

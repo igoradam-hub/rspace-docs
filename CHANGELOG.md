@@ -1429,3 +1429,70 @@ DISCREPANCY-DECISIONS-2026-04-23.md → «Вопросы команде RSpace»
 
 Push `358a3aa..ab0eea6 main -> main` → `ab0eea6..8b8994c main -> main`,
 9 файлов, 25 вставок, 89 удалений. GitBook синхронизировался за ~40 секунд.
+
+## 2026-04-24 · Wave 13-14: knowledge base + скриншоты по всем разделам
+
+### Волна 13 — knowledge/ для будущих AI-сессий
+
+- **Создан `CLAUDE.md`** в корне — главная инструкция для любого Claude (или другого AI/девелопера), работающего с проектом. Структура, критичные правила (нет имён, метастрок, «на двух площадках», «агентская комиссия» не «кэшбек»), источники правды, workflow публикации.
+- **Создана папка `knowledge/`** с 4 справочниками:
+  - `voice.md` — стилистика (тон, эмодзи, имена, форматы чисел, checklist перед commit)
+  - `terms.md` — глоссарий (баллы/рубли, агентская комиссия, Service Fee, AI-юрист Грут, проверки) + таблица «запрещённое → правильное»
+  - `data-points.md` — все актуальные цифры (тарифы, цены услуг, лимиты, Service Fee %, контакты, prod-цифры 437 юзеров)
+  - `workflow.md` — как пушить, как синкать GitBook, как снимать скрины, как чинить если не работает, куда смотреть при проблемах
+- `knowledge/README.md` — оглавление с порядком чтения в новой сессии.
+
+### Волна 14 — скриншоты по всем разделам
+
+**Было:** 14 скринов в 8 файлах.
+**Стало:** 30 скринов, все 17 external-файлов покрыты.
+
+**Вставки:**
+- `00-about.md` — landing-earning-cards, landing-features-grid, landing-rspace-pro, landing-testimonials (+ hero был)
+- `04-publishing.md` — lk-object-edit (кнопка «Опубликовать»)
+- `05-leads.md` — lk-dashboard (как выглядит интерфейс с лидами)
+- `06-mortgage.md` — landing-earning-cards, lk-services-shelf
+- `07-legal.md` — lk-services-shelf, landing-features-grid
+- `08-insurance.md` — landing-earning-cards (блок про страхование)
+- `10-analytics.md` — lk-dashboard, lk-dashboard-wallet
+- `11-notifications.md` — lk-profile (Telegram binding)
+- `13-faq.md` — landing-faq
+- `14-troubleshooting.md` — lk-login (для раздела «Проблемы с входом»)
+- `16-legal.md` — landing-footer (юр.ссылки)
+
+Плюс линтер убрал метастроки «Для кого / Сложность / Последнее обновление» во всех 13 файлах где они остались, и исправил падежи в «агентской комиссии» (было артефактом замены «кэшбек»).
+
+### Итого
+
+- Push `d5c7e07` (initial) → `358a3aa` → `ab0eea6` → `8b8994c` → `d9df2b8`
+- 24 файла в последнем коммите, 842 вставки, 70 удалений
+- GitHub: https://github.com/igoradam-hub/rspace-docs
+- GitBook live: https://rspace.gitbook.io/rspace-docs/
+
+## 2026-04-24 · Wave 15: разделение публичного сайта и internal
+
+### Problem
+
+Публичный сайт `rspace.gitbook.io/rspace-docs` показывал в sidebar dropdown оба space'а — «Документация для риелторов» **и** «Техническая документация (для команды)». Пользователь мог переключиться и увидеть internal-доку (имена сотрудников, GitLab-ссылки, tech-debt, bus factor, архитектуру).
+
+### Fix
+
+- **Отвязан Internal space** от публичного сайта через `DELETE /v1/orgs/{org}/sites/{site}/site-spaces/{sitespaceId}` (sitesp_mYJ1l). HTTP 205.
+- **Результат:** на публичном сайте в sidebar осталась только «Пользовательская документация RSpace», dropdown выбора между spaces исчез.
+
+### Internal — где теперь живёт
+
+- Продолжает существовать как space `2RzLw8hycrC3nCMygSg7` в GitBook organization Rspace.
+- Доступен только через `https://app.gitbook.com/o/AXievlr1dm3uTPaIaeap/s/2RzLw8hycrC3nCMygSg7/` — требует логин и членство в workspace.
+- GitHub Git Sync остаётся активным — правки в `internal/*.md` через push в GitHub продолжают синкаться.
+- Пользователи публичного сайта не имеют ссылки и способа туда попасть.
+
+### CLAUDE.md обновлён
+
+Добавлен явный раздел «⚠️ Публичный сайт vs Internal» — **не вставлять ссылки из external/ на internal/** (нарушит разделение).
+
+### Verification
+
+- Публичный URL `rspace.gitbook.io/rspace-docs/` — в sidebar только один space ✓
+- grep external/ на `internal/` ссылки — пусто ✓
+- Internal всё ещё редактируется через GitBook UI и git push ✓
