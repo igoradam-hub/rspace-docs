@@ -1,0 +1,2756 @@
+[
+  {
+    "line": 75,
+    "verb": "PUT",
+    "path": "/test/subscription/{subscription_id}/ends-at",
+    "controller": "AdminTestController",
+    "method": "updateSubscriptionEndsAt",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 76,
+    "verb": "POST",
+    "path": "/test/realties/filled",
+    "controller": "\\App\\Http\\Controllers\\Realty\\Test\\RealtyTestController",
+    "method": "createFilledRealty",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 78,
+    "verb": "GET",
+    "path": "/test/amo-crm/event-dispatches",
+    "controller": "\\App\\AmoCrm\\Http\\Controllers\\AmoCrmController",
+    "method": "listEventDispatches",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 80,
+    "verb": "POST",
+    "path": "/test/publishings/{publishing_id}/avito/update",
+    "controller": "\\App\\Http\\Controllers\\Publishings\\PublishingTestController",
+    "method": "updateAvito",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 81,
+    "verb": "POST",
+    "path": "/test/publishings/{publishing_id}/cian/update",
+    "controller": "\\App\\Http\\Controllers\\Publishings\\PublishingTestController",
+    "method": "updateCian",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 82,
+    "verb": "POST",
+    "path": "/test/publishings/{publishing_id}/expire",
+    "controller": "\\App\\Http\\Controllers\\Publishings\\PublishingTestController",
+    "method": "expirePublishing",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 84,
+    "verb": "POST",
+    "path": "/test/telegram/update",
+    "controller": "TelegramWebhookController",
+    "method": "update",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 86,
+    "verb": "POST",
+    "path": "/test/auth/login/{user_id}",
+    "controller": "AuthController",
+    "method": "loginById",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 92,
+    "verb": "GET",
+    "path": "/admin/admins/",
+    "controller": "AdminController",
+    "method": "listAdmins",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 93,
+    "verb": "POST",
+    "path": "/admin/admins/",
+    "controller": "AdminController",
+    "method": "createAdmin",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 94,
+    "verb": "GET",
+    "path": "/admin/admins/supervisors",
+    "controller": "AdminController",
+    "method": "listSupervisors",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 96,
+    "verb": "GET",
+    "path": "/admin/admins/{admin_id}/",
+    "controller": "AdminController",
+    "method": "getAdmin",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 97,
+    "verb": "PUT",
+    "path": "/admin/admins/{admin_id}/",
+    "controller": "AdminController",
+    "method": "updateAdmin",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 98,
+    "verb": "POST",
+    "path": "/admin/admins/{admin_id}/activate",
+    "controller": "AdminController",
+    "method": "activate",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 99,
+    "verb": "GET",
+    "path": "/admin/admins/{admin_id}/assigned-users",
+    "controller": "AdminController",
+    "method": "getAssignedUsers",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 100,
+    "verb": "POST",
+    "path": "/admin/admins/{admin_id}/assigned-users/reassign-to/{new_admin_id}",
+    "controller": "AdminController",
+    "method": "reassignUsers",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 101,
+    "verb": "POST",
+    "path": "/admin/admins/{admin_id}/deactivate",
+    "controller": "AdminController",
+    "method": "deactivate",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 102,
+    "verb": "PUT",
+    "path": "/admin/admins/{admin_id}/credentials",
+    "controller": "AdminController",
+    "method": "updateCredentials",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 104,
+    "verb": "POST",
+    "path": "/admin/admins/{admin_id}/files/",
+    "controller": "AdminController",
+    "method": "addFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 105,
+    "verb": "GET",
+    "path": "/admin/admins/{admin_id}/files/{file_uuid}",
+    "controller": "AdminController",
+    "method": "downloadFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 106,
+    "verb": "DELETE",
+    "path": "/admin/admins/{admin_id}/files/{file_uuid}",
+    "controller": "AdminController",
+    "method": "deleteFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 112,
+    "verb": "GET",
+    "path": "/admin/auth/check",
+    "controller": "AdminAuthController",
+    "method": "check",
+    "middleware": "auth:admin",
+    "without_middleware": "auth:admin"
+  },
+  {
+    "line": 113,
+    "verb": "POST",
+    "path": "/admin/auth/login",
+    "controller": "AdminAuthController",
+    "method": "login",
+    "middleware": "auth:admin,throttle:5,1",
+    "without_middleware": "auth:admin"
+  },
+  {
+    "line": 116,
+    "verb": "POST",
+    "path": "/admin/auth/logout",
+    "controller": "AdminAuthController",
+    "method": "logout",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 117,
+    "verb": "POST",
+    "path": "/admin/auth/logout/all",
+    "controller": "AdminAuthController",
+    "method": "logoutAll",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 118,
+    "verb": "POST",
+    "path": "/admin/auth/change-password",
+    "controller": "AdminAuthController",
+    "method": "changePassword",
+    "middleware": "auth:admin,throttle:5,1",
+    "without_middleware": ""
+  },
+  {
+    "line": 122,
+    "verb": "GET",
+    "path": "/admin/balances",
+    "controller": "ExternalBalancesAdminController",
+    "method": "getBalances",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 127,
+    "verb": "GET",
+    "path": "/admin/billing/balance-transactions/",
+    "controller": "AdminBalanceController",
+    "method": "listTransactions",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 131,
+    "verb": "GET",
+    "path": "/admin/billing/balance/transactions",
+    "controller": "AdminBalanceController",
+    "method": "listTransactions",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 135,
+    "verb": "POST",
+    "path": "/admin/billing/compensation-balance/decrement",
+    "controller": "AdminCompensationBalanceController",
+    "method": "decrementBalance",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 136,
+    "verb": "POST",
+    "path": "/admin/billing/compensation-balance/increment",
+    "controller": "AdminCompensationBalanceController",
+    "method": "incrementBalance",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 137,
+    "verb": "GET",
+    "path": "/admin/billing/compensation-balance/transactions",
+    "controller": "AdminCompensationBalanceController",
+    "method": "listTransactions",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 141,
+    "verb": "GET",
+    "path": "/admin/billing/compensation-withdrawals/",
+    "controller": "AdminCompensationWithdrawalController",
+    "method": "list",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 143,
+    "verb": "GET",
+    "path": "/admin/billing/compensation-withdrawals/{withdrawal_id}/",
+    "controller": "AdminCompensationWithdrawalController",
+    "method": "get",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 144,
+    "verb": "POST",
+    "path": "/admin/billing/compensation-withdrawals/{withdrawal_id}/complete/balance",
+    "controller": "AdminCompensationWithdrawalController",
+    "method": "completeBalance",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 145,
+    "verb": "POST",
+    "path": "/admin/billing/compensation-withdrawals/{withdrawal_id}/complete/card",
+    "controller": "AdminCompensationWithdrawalController",
+    "method": "completeCard",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 146,
+    "verb": "POST",
+    "path": "/admin/billing/compensation-withdrawals/{withdrawal_id}/complete/bank-account",
+    "controller": "AdminCompensationWithdrawalController",
+    "method": "completeBankAccount",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 147,
+    "verb": "POST",
+    "path": "/admin/billing/compensation-withdrawals/{withdrawal_id}/start",
+    "controller": "AdminCompensationWithdrawalController",
+    "method": "start",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 148,
+    "verb": "POST",
+    "path": "/admin/billing/compensation-withdrawals/{withdrawal_id}/reject",
+    "controller": "AdminCompensationWithdrawalController",
+    "method": "reject",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 153,
+    "verb": "GET",
+    "path": "/admin/billing/invoices/",
+    "controller": "AdminInvoiceController",
+    "method": "listInvoices",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 157,
+    "verb": "GET",
+    "path": "/admin/billing/payment-methods/",
+    "controller": "AdminPaymentMethodController",
+    "method": "list",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 162,
+    "verb": "GET",
+    "path": "/admin/billing/payments/cloud-payments/",
+    "controller": "AdminCloudPaymentsController",
+    "method": "listPayments",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 167,
+    "verb": "GET",
+    "path": "/admin/billing/promo-codes/",
+    "controller": "AdminPromoCodeController",
+    "method": "listPromoCodes",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 168,
+    "verb": "POST",
+    "path": "/admin/billing/promo-codes/",
+    "controller": "AdminPromoCodeController",
+    "method": "createPromoCode",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 171,
+    "verb": "GET",
+    "path": "/admin/billing/promo-codes/{promo_code_id}/",
+    "controller": "AdminPromoCodeController",
+    "method": "getPromoCode",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 172,
+    "verb": "PATCH",
+    "path": "/admin/billing/promo-codes/{promo_code_id}/",
+    "controller": "AdminPromoCodeController",
+    "method": "updatePromoCode",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 173,
+    "verb": "POST",
+    "path": "/admin/billing/promo-codes/{promo_code_id}/activate",
+    "controller": "AdminPromoCodeController",
+    "method": "activatePromoCode",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 174,
+    "verb": "GET",
+    "path": "/admin/billing/promo-codes/{promo_code_id}/activations",
+    "controller": "AdminPromoCodeController",
+    "method": "listPromoCodeActivations",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 181,
+    "verb": "GET",
+    "path": "/admin/feeds/{feed_type}/",
+    "controller": "FeedController",
+    "method": "getFeed",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 182,
+    "verb": "POST",
+    "path": "/admin/feeds/{feed_type}/generate",
+    "controller": "FeedController",
+    "method": "generateFeed",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 187,
+    "verb": "GET",
+    "path": "/admin/leads/",
+    "controller": "AdminLeadController",
+    "method": "listLeads",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 188,
+    "verb": "POST",
+    "path": "/admin/leads/assign",
+    "controller": "AdminLeadController",
+    "method": "bulkAssignLeads",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 189,
+    "verb": "POST",
+    "path": "/admin/leads/sync",
+    "controller": "AdminLeadController",
+    "method": "syncLeads",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 194,
+    "verb": "GET",
+    "path": "/admin/plans/levels/",
+    "controller": "AdminPlanController",
+    "method": "listPlanLevelSettings",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 195,
+    "verb": "PUT",
+    "path": "/admin/plans/levels/",
+    "controller": "AdminPlanController",
+    "method": "updatePlanLevelSettings",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 197,
+    "verb": "GET",
+    "path": "/admin/plans/",
+    "controller": "AdminPlanController",
+    "method": "list",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 198,
+    "verb": "POST",
+    "path": "/admin/plans/",
+    "controller": "AdminPlanController",
+    "method": "create",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 200,
+    "verb": "GET",
+    "path": "/admin/plans/{plan_id}/",
+    "controller": "AdminPlanController",
+    "method": "get",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 201,
+    "verb": "PUT",
+    "path": "/admin/plans/{plan_id}/",
+    "controller": "AdminPlanController",
+    "method": "update",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 202,
+    "verb": "POST",
+    "path": "/admin/plans/{plan_id}/archive",
+    "controller": "AdminPlanController",
+    "method": "archive",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 203,
+    "verb": "POST",
+    "path": "/admin/plans/{plan_id}/restore",
+    "controller": "AdminPlanController",
+    "method": "restore",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 209,
+    "verb": "GET",
+    "path": "/admin/publishings/calls/",
+    "controller": "PublishingCallsAdminController",
+    "method": "listCalls",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 210,
+    "verb": "GET",
+    "path": "/admin/publishings/calls/csv",
+    "controller": "PublishingCallsAdminController",
+    "method": "downloadCallsCsv",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 214,
+    "verb": "GET",
+    "path": "/admin/publishings/promotions/avito",
+    "controller": "AdminPromotionsController",
+    "method": "listAvitoPromotions",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 215,
+    "verb": "GET",
+    "path": "/admin/publishings/promotions/cian",
+    "controller": "AdminPromotionsController",
+    "method": "listCianPromotions",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 219,
+    "verb": "GET",
+    "path": "/admin/publishings/promotions/requests/avito/",
+    "controller": "AdminPublishingPromotionRequestController",
+    "method": "listAvito",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 220,
+    "verb": "POST",
+    "path": "/admin/publishings/promotions/requests/avito/{request_id}/complete",
+    "controller": "AdminPublishingPromotionRequestController",
+    "method": "completeAvito",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 224,
+    "verb": "DELETE",
+    "path": "/admin/publishings/promotions/requests/avito/{request_id}",
+    "controller": "AdminPublishingPromotionRequestController",
+    "method": "deleteAvito",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 227,
+    "verb": "GET",
+    "path": "/admin/publishings/promotions/requests/cian/",
+    "controller": "AdminPublishingPromotionRequestController",
+    "method": "listCian",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 228,
+    "verb": "POST",
+    "path": "/admin/publishings/promotions/requests/cian/{request_id}/complete",
+    "controller": "AdminPublishingPromotionRequestController",
+    "method": "completeCian",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 232,
+    "verb": "DELETE",
+    "path": "/admin/publishings/promotions/requests/cian/{request_id}",
+    "controller": "AdminPublishingPromotionRequestController",
+    "method": "deleteCian",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 237,
+    "verb": "GET",
+    "path": "/admin/publishings/",
+    "controller": "AdminPublishingsController",
+    "method": "getList",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 238,
+    "verb": "POST",
+    "path": "/admin/publishings/",
+    "controller": "AdminPublishingsController",
+    "method": "add",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 240,
+    "verb": "GET",
+    "path": "/admin/publishings/{publishing_id}/",
+    "controller": "AdminPublishingsController",
+    "method": "get",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 241,
+    "verb": "PUT",
+    "path": "/admin/publishings/{publishing_id}/",
+    "controller": "AdminPublishingsController",
+    "method": "update",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 242,
+    "verb": "POST",
+    "path": "/admin/publishings/{publishing_id}/archive",
+    "controller": "AdminPublishingsController",
+    "method": "archive",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 244,
+    "verb": "POST",
+    "path": "/admin/publishings/{publishing_id}/avito/",
+    "controller": "AdminPublishingsController",
+    "method": "addAvito",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 245,
+    "verb": "DELETE",
+    "path": "/admin/publishings/{publishing_id}/avito/",
+    "controller": "AdminPublishingsController",
+    "method": "deleteAvito",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 247,
+    "verb": "POST",
+    "path": "/admin/publishings/{publishing_id}/avito/promotions/",
+    "controller": "AdminPromotionsController",
+    "method": "addAvitoPromotion",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 251,
+    "verb": "POST",
+    "path": "/admin/publishings/{publishing_id}/cian/",
+    "controller": "AdminPublishingsController",
+    "method": "addCian",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 252,
+    "verb": "DELETE",
+    "path": "/admin/publishings/{publishing_id}/cian/",
+    "controller": "AdminPublishingsController",
+    "method": "deleteCian",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 254,
+    "verb": "POST",
+    "path": "/admin/publishings/{publishing_id}/cian/promotions/",
+    "controller": "AdminPromotionsController",
+    "method": "addCianPromotion",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 257,
+    "verb": "PATCH",
+    "path": "/admin/publishings/{publishing_id}/external-id",
+    "controller": "AdminPublishingsController",
+    "method": "setExternalIds",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 258,
+    "verb": "POST",
+    "path": "/admin/publishings/{publishing_id}/prolong",
+    "controller": "AdminPublishingsController",
+    "method": "prolong",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 264,
+    "verb": "GET",
+    "path": "/admin/realties/prompts/settings",
+    "controller": "AdminRealtyPromptsController",
+    "method": "getSettings",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 265,
+    "verb": "POST",
+    "path": "/admin/realties/prompts/toggle",
+    "controller": "AdminRealtyPromptsController",
+    "method": "toggle",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 266,
+    "verb": "GET",
+    "path": "/admin/realties/prompts/variables",
+    "controller": "AdminRealtyPromptsController",
+    "method": "listVariables",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 267,
+    "verb": "POST",
+    "path": "/admin/realties/prompts/",
+    "controller": "AdminRealtyPromptsController",
+    "method": "createPrompt",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 268,
+    "verb": "GET",
+    "path": "/admin/realties/prompts/",
+    "controller": "AdminRealtyPromptsController",
+    "method": "listPrompts",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 270,
+    "verb": "POST",
+    "path": "/admin/realties/prompts/{prompt_id}/activate",
+    "controller": "AdminRealtyPromptsController",
+    "method": "activatePrompt",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 271,
+    "verb": "POST",
+    "path": "/admin/realties/prompts/{prompt_id}/deactivate",
+    "controller": "AdminRealtyPromptsController",
+    "method": "deactivatePrompt",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 272,
+    "verb": "GET",
+    "path": "/admin/realties/prompts/{prompt_id}/",
+    "controller": "AdminRealtyPromptsController",
+    "method": "getPrompt",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 273,
+    "verb": "PUT",
+    "path": "/admin/realties/prompts/{prompt_id}/",
+    "controller": "AdminRealtyPromptsController",
+    "method": "updatePrompt",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 274,
+    "verb": "DELETE",
+    "path": "/admin/realties/prompts/{prompt_id}/",
+    "controller": "AdminRealtyPromptsController",
+    "method": "deletePrompt",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 278,
+    "verb": "GET",
+    "path": "/admin/realties/",
+    "controller": "AdminRealtyController",
+    "method": "getList",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 279,
+    "verb": "POST",
+    "path": "/admin/realties/",
+    "controller": "AdminRealtyController",
+    "method": "createDraft",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 281,
+    "verb": "GET",
+    "path": "/admin/realties/{realty_id}/",
+    "controller": "AdminRealtyController",
+    "method": "get",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 282,
+    "verb": "PUT",
+    "path": "/admin/realties/{realty_id}/apartment",
+    "controller": "AdminRealtyController",
+    "method": "updateApartment",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 283,
+    "verb": "PUT",
+    "path": "/admin/realties/{realty_id}/apartment/building",
+    "controller": "AdminRealtyController",
+    "method": "updateApartmentBuilding",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 284,
+    "verb": "POST",
+    "path": "/admin/realties/{realty_id}/archive",
+    "controller": "AdminRealtyController",
+    "method": "archive",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 285,
+    "verb": "PUT",
+    "path": "/admin/realties/{realty_id}/deal-terms",
+    "controller": "AdminRealtyController",
+    "method": "updateDealTerms",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 286,
+    "verb": "PUT",
+    "path": "/admin/realties/{realty_id}/description",
+    "controller": "AdminRealtyController",
+    "method": "updateDescription",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 287,
+    "verb": "PUT",
+    "path": "/admin/realties/{realty_id}/house",
+    "controller": "AdminRealtyController",
+    "method": "updateHouse",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 288,
+    "verb": "PUT",
+    "path": "/admin/realties/{realty_id}/land-plot",
+    "controller": "AdminRealtyController",
+    "method": "updateLandPlot",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 289,
+    "verb": "PUT",
+    "path": "/admin/realties/{realty_id}/location",
+    "controller": "AdminRealtyController",
+    "method": "updateLocation",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 291,
+    "verb": "PUT",
+    "path": "/admin/realties/{realty_id}/new-apartment-info/",
+    "controller": "AdminRealtyController",
+    "method": "updateNewApartmentInfo",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 292,
+    "verb": "POST",
+    "path": "/admin/realties/{realty_id}/new-apartment-info/ddu",
+    "controller": "AdminRealtyController",
+    "method": "saveNewApartmentInfoDdu",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 295,
+    "verb": "PUT",
+    "path": "/admin/realties/{realty_id}/owner-info/",
+    "controller": "AdminRealtyController",
+    "method": "updateOwnerInfo",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 296,
+    "verb": "POST",
+    "path": "/admin/realties/{realty_id}/owner-info/files",
+    "controller": "AdminRealtyController",
+    "method": "addOwnerInfoFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 297,
+    "verb": "DELETE",
+    "path": "/admin/realties/{realty_id}/owner-info/files/{file_uuid}",
+    "controller": "AdminRealtyController",
+    "method": "deleteOwnerInfoFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 300,
+    "verb": "POST",
+    "path": "/admin/realties/{realty_id}/photos/",
+    "controller": "AdminRealtyController",
+    "method": "addPhoto",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 301,
+    "verb": "POST",
+    "path": "/admin/realties/{realty_id}/photos/reorder",
+    "controller": "AdminRealtyController",
+    "method": "reorderPhotos",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 302,
+    "verb": "PATCH",
+    "path": "/admin/realties/{realty_id}/photos/{photo_uuid}",
+    "controller": "AdminRealtyController",
+    "method": "updatePhoto",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 303,
+    "verb": "DELETE",
+    "path": "/admin/realties/{realty_id}/photos/{photo_uuid}",
+    "controller": "AdminRealtyController",
+    "method": "deletePhoto",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 305,
+    "verb": "POST",
+    "path": "/admin/realties/{realty_id}/publish",
+    "controller": "AdminRealtyController",
+    "method": "publish",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 306,
+    "verb": "POST",
+    "path": "/admin/realties/{realty_id}/restore",
+    "controller": "AdminRealtyController",
+    "method": "restore",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 308,
+    "verb": "POST",
+    "path": "/admin/realties/{realty_id}/rooms/",
+    "controller": "AdminRealtyController",
+    "method": "addRoom",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 309,
+    "verb": "PATCH",
+    "path": "/admin/realties/{realty_id}/rooms/{room_id}",
+    "controller": "AdminRealtyController",
+    "method": "updateRoom",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 310,
+    "verb": "DELETE",
+    "path": "/admin/realties/{realty_id}/rooms/{room_id}",
+    "controller": "AdminRealtyController",
+    "method": "deleteRoom",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 312,
+    "verb": "PUT",
+    "path": "/admin/realties/{realty_id}/share",
+    "controller": "AdminRealtyController",
+    "method": "updateShare",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 313,
+    "verb": "PUT",
+    "path": "/admin/realties/{realty_id}/video-url",
+    "controller": "AdminRealtyController",
+    "method": "updateVideoUrl",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 319,
+    "verb": "GET",
+    "path": "/admin/scorings/requests/",
+    "controller": "AdminScoringRequestsController",
+    "method": "listScoringRequests",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 321,
+    "verb": "GET",
+    "path": "/admin/scorings/requests/{request_id}/",
+    "controller": "AdminScoringRequestsController",
+    "method": "getScoringRequest",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 322,
+    "verb": "POST",
+    "path": "/admin/scorings/requests/{request_id}/cancel",
+    "controller": "AdminScoringRequestsController",
+    "method": "cancelScoringRequest",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 323,
+    "verb": "GET",
+    "path": "/admin/scorings/requests/{request_id}/file",
+    "controller": "AdminScoringRequestsController",
+    "method": "getScoringRequestFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 324,
+    "verb": "POST",
+    "path": "/admin/scorings/requests/{request_id}/finish",
+    "controller": "AdminScoringRequestsController",
+    "method": "finishScoringRequest",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 328,
+    "verb": "GET",
+    "path": "/admin/scorings/",
+    "controller": "AdminScoringsController",
+    "method": "listScorings",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 329,
+    "verb": "POST",
+    "path": "/admin/scorings/",
+    "controller": "AdminScoringsController",
+    "method": "createScoring",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 331,
+    "verb": "GET",
+    "path": "/admin/scorings/{scoring_id}/",
+    "controller": "AdminScoringsController",
+    "method": "getScoring",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 332,
+    "verb": "PUT",
+    "path": "/admin/scorings/{scoring_id}/",
+    "controller": "AdminScoringsController",
+    "method": "updateScoring",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 338,
+    "verb": "GET",
+    "path": "/admin/services/charges/",
+    "controller": "AdminServiceChargeController",
+    "method": "list",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 339,
+    "verb": "POST",
+    "path": "/admin/services/charges/",
+    "controller": "AdminServiceChargeController",
+    "method": "create",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 340,
+    "verb": "POST",
+    "path": "/admin/services/charges/consume",
+    "controller": "AdminServiceChargeController",
+    "method": "consume",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 344,
+    "verb": "GET",
+    "path": "/admin/services/requests/",
+    "controller": "AdminServiceRequestController",
+    "method": "list",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 346,
+    "verb": "GET",
+    "path": "/admin/services/requests/{request_id}/",
+    "controller": "AdminServiceRequestController",
+    "method": "get",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 347,
+    "verb": "POST",
+    "path": "/admin/services/requests/{request_id}/cancel",
+    "controller": "AdminServiceRequestController",
+    "method": "cancel",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 349,
+    "verb": "GET",
+    "path": "/admin/services/requests/{request_id}/comments/",
+    "controller": "AdminServiceRequestCommentController",
+    "method": "list",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 350,
+    "verb": "POST",
+    "path": "/admin/services/requests/{request_id}/comments/",
+    "controller": "AdminServiceRequestCommentController",
+    "method": "add",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 352,
+    "verb": "PUT",
+    "path": "/admin/services/requests/{request_id}/comments/{comment_id}/",
+    "controller": "AdminServiceRequestCommentController",
+    "method": "update",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 353,
+    "verb": "DELETE",
+    "path": "/admin/services/requests/{request_id}/comments/{comment_id}/",
+    "controller": "AdminServiceRequestCommentController",
+    "method": "delete",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 355,
+    "verb": "POST",
+    "path": "/admin/services/requests/{request_id}/comments/{comment_id}/files/",
+    "controller": "AdminServiceRequestCommentController",
+    "method": "addFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 357,
+    "verb": "GET",
+    "path": "/admin/services/requests/{request_id}/comments/{comment_id}/files/{file_uuid}/",
+    "controller": "AdminServiceRequestCommentController",
+    "method": "downloadFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 358,
+    "verb": "DELETE",
+    "path": "/admin/services/requests/{request_id}/comments/{comment_id}/files/{file_uuid}/",
+    "controller": "AdminServiceRequestCommentController",
+    "method": "deleteFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 359,
+    "verb": "DELETE",
+    "path": "/admin/services/requests/{request_id}/comments/{comment_id}/files/{file_uuid}/url",
+    "controller": "AdminServiceRequestCommentController",
+    "method": "getFileUrl",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 364,
+    "verb": "POST",
+    "path": "/admin/services/requests/{request_id}/complete",
+    "controller": "AdminServiceRequestController",
+    "method": "complete",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 366,
+    "verb": "POST",
+    "path": "/admin/services/requests/{request_id}/files/",
+    "controller": "AdminServiceRequestFileController",
+    "method": "addFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 368,
+    "verb": "GET",
+    "path": "/admin/services/requests/{request_id}/files/{file_uuid}/",
+    "controller": "AdminServiceRequestFileController",
+    "method": "downloadFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 369,
+    "verb": "DELETE",
+    "path": "/admin/services/requests/{request_id}/files/{file_uuid}/",
+    "controller": "AdminServiceRequestFileController",
+    "method": "deleteFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 370,
+    "verb": "GET",
+    "path": "/admin/services/requests/{request_id}/files/{file_uuid}/url",
+    "controller": "AdminServiceRequestFileController",
+    "method": "getDownloadUrl",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 373,
+    "verb": "PUT",
+    "path": "/admin/services/requests/{request_id}/responsible/{responsible_id}",
+    "controller": "AdminServiceRequestController",
+    "method": "setResponsible",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 375,
+    "verb": "POST",
+    "path": "/admin/services/requests/{request_id}/restore",
+    "controller": "AdminServiceRequestController",
+    "method": "restore",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 376,
+    "verb": "POST",
+    "path": "/admin/services/requests/{request_id}/start",
+    "controller": "AdminServiceRequestController",
+    "method": "start",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 380,
+    "verb": "GET",
+    "path": "/admin/services/",
+    "controller": "AdminServiceController",
+    "method": "list",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 381,
+    "verb": "POST",
+    "path": "/admin/services/",
+    "controller": "AdminServiceController",
+    "method": "add",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 383,
+    "verb": "POST",
+    "path": "/admin/services/{service_id}/archive",
+    "controller": "AdminServiceController",
+    "method": "archive",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 384,
+    "verb": "POST",
+    "path": "/admin/services/{service_id}/restore",
+    "controller": "AdminServiceController",
+    "method": "restore",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 385,
+    "verb": "POST",
+    "path": "/admin/services/{service_id}/image",
+    "controller": "AdminServiceController",
+    "method": "uploadImage",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 387,
+    "verb": "POST",
+    "path": "/admin/services/{service_id}/widget/activate",
+    "controller": "WidgetAdminController",
+    "method": "activateWidgetItem",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 388,
+    "verb": "POST",
+    "path": "/admin/services/{service_id}/widget/deactivate",
+    "controller": "WidgetAdminController",
+    "method": "deactivateWidgetItem",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 389,
+    "verb": "GET",
+    "path": "/admin/services/{service_id}/widget/",
+    "controller": "WidgetAdminController",
+    "method": "getWidgetItem",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 390,
+    "verb": "PUT",
+    "path": "/admin/services/{service_id}/widget/",
+    "controller": "WidgetAdminController",
+    "method": "fillWidgetItem",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 392,
+    "verb": "GET",
+    "path": "/admin/services/{service_id}/",
+    "controller": "AdminServiceController",
+    "method": "get",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 393,
+    "verb": "PUT",
+    "path": "/admin/services/{service_id}/",
+    "controller": "AdminServiceController",
+    "method": "update",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 398,
+    "verb": "GET",
+    "path": "/admin/users/",
+    "controller": "UserController",
+    "method": "getUsers",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 399,
+    "verb": "GET",
+    "path": "/admin/users/csv",
+    "controller": "UserController",
+    "method": "getUsersCsv",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 400,
+    "verb": "GET",
+    "path": "/admin/users/possible-curators",
+    "controller": "UserController",
+    "method": "getPossibleCurators",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 402,
+    "verb": "GET",
+    "path": "/admin/users/{user_id}/",
+    "controller": "UserController",
+    "method": "getUser",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 403,
+    "verb": "PUT",
+    "path": "/admin/users/{user_id}/",
+    "controller": "UserController",
+    "method": "updateUser",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 404,
+    "verb": "POST",
+    "path": "/admin/users/{user_id}/activate",
+    "controller": "UserController",
+    "method": "activate",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 405,
+    "verb": "POST",
+    "path": "/admin/users/{user_id}/avatar",
+    "controller": "UserController",
+    "method": "setAvatar",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 406,
+    "verb": "POST",
+    "path": "/admin/users/{user_id}/balance/decrement",
+    "controller": "UserController",
+    "method": "decrementBalance",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 407,
+    "verb": "POST",
+    "path": "/admin/users/{user_id}/balance/increment",
+    "controller": "UserController",
+    "method": "incrementBalance",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 408,
+    "verb": "POST",
+    "path": "/admin/users/{user_id}/deactivate",
+    "controller": "UserController",
+    "method": "deactivate",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 410,
+    "verb": "GET",
+    "path": "/admin/users/{user_id}/comments/",
+    "controller": "UserCommentsController",
+    "method": "getComments",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 411,
+    "verb": "POST",
+    "path": "/admin/users/{user_id}/comments/",
+    "controller": "UserCommentsController",
+    "method": "addComment",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 413,
+    "verb": "PUT",
+    "path": "/admin/users/{user_id}/comments/{comment_id}/",
+    "controller": "UserCommentsController",
+    "method": "updateComment",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 414,
+    "verb": "DELETE",
+    "path": "/admin/users/{user_id}/comments/{comment_id}/",
+    "controller": "UserCommentsController",
+    "method": "deleteComment",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 416,
+    "verb": "POST",
+    "path": "/admin/users/{user_id}/comments/{comment_id}/files/",
+    "controller": "UserCommentsController",
+    "method": "addFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 418,
+    "verb": "GET",
+    "path": "/admin/users/{user_id}/comments/{comment_id}/files/{file_uuid}/",
+    "controller": "UserCommentsController",
+    "method": "getFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 419,
+    "verb": "DELETE",
+    "path": "/admin/users/{user_id}/comments/{comment_id}/files/{file_uuid}/",
+    "controller": "UserCommentsController",
+    "method": "deleteFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 425,
+    "verb": "POST",
+    "path": "/admin/users/{user_id}/files/",
+    "controller": "UserFileController",
+    "method": "addFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 427,
+    "verb": "GET",
+    "path": "/admin/users/{user_id}/files/{file_uuid}/",
+    "controller": "UserFileController",
+    "method": "getFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 428,
+    "verb": "DELETE",
+    "path": "/admin/users/{user_id}/files/{file_uuid}/",
+    "controller": "UserFileController",
+    "method": "deleteFile",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 431,
+    "verb": "GET",
+    "path": "/admin/users/{user_id}/publishings/charges",
+    "controller": "AdminPublishingsController",
+    "method": "listCharges",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 433,
+    "verb": "POST",
+    "path": "/admin/users/{user_id}/subscription/assign",
+    "controller": "AdminSubscriptionController",
+    "method": "assignSubscription",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 434,
+    "verb": "PUT",
+    "path": "/admin/users/{user_id}/subscription/payment-method",
+    "controller": "AdminSubscriptionController",
+    "method": "updatePaymentMethod",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 435,
+    "verb": "POST",
+    "path": "/admin/users/{user_id}/subscription/start-trial",
+    "controller": "AdminSubscriptionController",
+    "method": "startTrial",
+    "middleware": "auth:admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 442,
+    "verb": "GET",
+    "path": "/auth/check",
+    "controller": "AuthController",
+    "method": "check",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 443,
+    "verb": "POST",
+    "path": "/auth/register",
+    "controller": "AuthController",
+    "method": "register",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 444,
+    "verb": "POST",
+    "path": "/auth/register/send-code",
+    "controller": "AuthController",
+    "method": "sendCodeForRegister",
+    "middleware": "throttle:register_sms_code",
+    "without_middleware": ""
+  },
+  {
+    "line": 446,
+    "verb": "POST",
+    "path": "/auth/login",
+    "controller": "AuthController",
+    "method": "login",
+    "middleware": "throttle:login",
+    "without_middleware": ""
+  },
+  {
+    "line": 447,
+    "verb": "POST",
+    "path": "/auth/logout",
+    "controller": "AuthController",
+    "method": "logout",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 448,
+    "verb": "POST",
+    "path": "/auth/logout/all",
+    "controller": "AuthController",
+    "method": "logoutAll",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 449,
+    "verb": "POST",
+    "path": "/auth/reset-password",
+    "controller": "AuthController",
+    "method": "resetPassword",
+    "middleware": "throttle:reset_password",
+    "without_middleware": ""
+  },
+  {
+    "line": 450,
+    "verb": "POST",
+    "path": "/auth/reset-password/send-code",
+    "controller": "AuthController",
+    "method": "sendCodeForPasswordReset",
+    "middleware": "throttle:reset_password_sms_code",
+    "without_middleware": ""
+  },
+  {
+    "line": 456,
+    "verb": "POST",
+    "path": "/billing/balance/deposit",
+    "controller": "BalanceController",
+    "method": "deposit",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 457,
+    "verb": "GET",
+    "path": "/billing/balance/transactions",
+    "controller": "BalanceController",
+    "method": "listTransactions",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 461,
+    "verb": "GET",
+    "path": "/billing/compensation-balance/transactions",
+    "controller": "CompensationBalanceController",
+    "method": "listTransactions",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 465,
+    "verb": "GET",
+    "path": "/billing/compensation-withdrawals/",
+    "controller": "CompensationWithdrawalController",
+    "method": "list",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 466,
+    "verb": "POST",
+    "path": "/billing/compensation-withdrawals/",
+    "controller": "CompensationWithdrawalController",
+    "method": "create",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 467,
+    "verb": "GET",
+    "path": "/billing/compensation-withdrawals/recipient-details",
+    "controller": "CompensationWithdrawalController",
+    "method": "getRecipientDetails",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 471,
+    "verb": "GET",
+    "path": "/billing/invoices/",
+    "controller": "InvoiceController",
+    "method": "listInvoices",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 475,
+    "verb": "GET",
+    "path": "/billing/payment_methods/",
+    "controller": "PaymentMethodController",
+    "method": "list",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 476,
+    "verb": "POST",
+    "path": "/billing/payment_methods/authorize",
+    "controller": "PaymentMethodController",
+    "method": "authorize",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 477,
+    "verb": "DELETE",
+    "path": "/billing/payment_methods/{payment_method_id}",
+    "controller": "PaymentMethodController",
+    "method": "delete",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 482,
+    "verb": "GET",
+    "path": "/billing/payments/cloud-payments/",
+    "controller": "CloudPaymentsController",
+    "method": "listPayments",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 487,
+    "verb": "POST",
+    "path": "/billing/promo-codes/activate",
+    "controller": "PromoCodeController",
+    "method": "activatePromoCode",
+    "middleware": "auth:user,auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 488,
+    "verb": "GET",
+    "path": "/billing/promo-codes/active",
+    "controller": "PromoCodeController",
+    "method": "getActivePromoCode",
+    "middleware": "auth:user,auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 493,
+    "verb": "GET",
+    "path": "/feed/avito",
+    "controller": "FeedController",
+    "method": "getAvitoFeed",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 494,
+    "verb": "GET",
+    "path": "/feed/cian",
+    "controller": "FeedController",
+    "method": "getCianFeed",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 498,
+    "verb": "GET",
+    "path": "/leads/",
+    "controller": "LeadController",
+    "method": "listLeads",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 502,
+    "verb": "GET",
+    "path": "/onboarding/",
+    "controller": "OnboardingController",
+    "method": "getInfo",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 506,
+    "verb": "GET",
+    "path": "/realties/settings",
+    "controller": "RealtyController",
+    "method": "getSettings",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 507,
+    "verb": "GET",
+    "path": "/realties/",
+    "controller": "RealtyController",
+    "method": "getList",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 508,
+    "verb": "POST",
+    "path": "/realties/",
+    "controller": "RealtyController",
+    "method": "create",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 510,
+    "verb": "GET",
+    "path": "/realties/{realty_id}/",
+    "controller": "RealtyController",
+    "method": "get",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 511,
+    "verb": "DELETE",
+    "path": "/realties/{realty_id}/",
+    "controller": "RealtyController",
+    "method": "delete",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 512,
+    "verb": "PUT",
+    "path": "/realties/{realty_id}/apartment",
+    "controller": "RealtyController",
+    "method": "updateApartment",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 513,
+    "verb": "PUT",
+    "path": "/realties/{realty_id}/apartment/building",
+    "controller": "RealtyController",
+    "method": "updateApartmentBuilding",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 514,
+    "verb": "POST",
+    "path": "/realties/{realty_id}/archive",
+    "controller": "RealtyController",
+    "method": "archive",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 515,
+    "verb": "PUT",
+    "path": "/realties/{realty_id}/deal-terms",
+    "controller": "RealtyController",
+    "method": "updateDealTerms",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 516,
+    "verb": "GET",
+    "path": "/realties/{realty_id}/description/generate/eligible",
+    "controller": "RealtyAiGenerationController",
+    "method": "isRealtyEligibleForGeneration",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 517,
+    "verb": "POST",
+    "path": "/realties/{realty_id}/description/generate",
+    "controller": "RealtyAiGenerationController",
+    "method": "generateDescription",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 518,
+    "verb": "PUT",
+    "path": "/realties/{realty_id}/description",
+    "controller": "RealtyController",
+    "method": "updateDescription",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 519,
+    "verb": "PUT",
+    "path": "/realties/{realty_id}/house",
+    "controller": "RealtyController",
+    "method": "updateHouse",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 520,
+    "verb": "PUT",
+    "path": "/realties/{realty_id}/land-plot",
+    "controller": "RealtyController",
+    "method": "updateLandPlot",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 521,
+    "verb": "PUT",
+    "path": "/realties/{realty_id}/location",
+    "controller": "RealtyController",
+    "method": "updateLocation",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 523,
+    "verb": "PUT",
+    "path": "/realties/{realty_id}/new-apartment-info/",
+    "controller": "RealtyController",
+    "method": "updateNewApartmentInfo",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 524,
+    "verb": "POST",
+    "path": "/realties/{realty_id}/new-apartment-info/ddu",
+    "controller": "RealtyController",
+    "method": "saveNewApartmentInfoDdu",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 526,
+    "verb": "GET",
+    "path": "/realties/{realty_id}/offer",
+    "controller": "RealtyController",
+    "method": "getOffer",
+    "middleware": "auth:user",
+    "without_middleware": "auth:user"
+  },
+  {
+    "line": 528,
+    "verb": "PUT",
+    "path": "/realties/{realty_id}/owner-info/",
+    "controller": "RealtyController",
+    "method": "updateOwnerInfo",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 529,
+    "verb": "POST",
+    "path": "/realties/{realty_id}/owner-info/files",
+    "controller": "RealtyController",
+    "method": "addOwnerInfoFile",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 530,
+    "verb": "DELETE",
+    "path": "/realties/{realty_id}/owner-info/files/{file_uuid}",
+    "controller": "RealtyController",
+    "method": "deleteOwnerInfoFile",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 533,
+    "verb": "POST",
+    "path": "/realties/{realty_id}/photos/",
+    "controller": "RealtyController",
+    "method": "addPhoto",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 534,
+    "verb": "POST",
+    "path": "/realties/{realty_id}/photos/reorder",
+    "controller": "RealtyController",
+    "method": "reorderPhotos",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 535,
+    "verb": "PATCH",
+    "path": "/realties/{realty_id}/photos/{photo_uuid}",
+    "controller": "RealtyController",
+    "method": "updatePhoto",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 536,
+    "verb": "DELETE",
+    "path": "/realties/{realty_id}/photos/{photo_uuid}",
+    "controller": "RealtyController",
+    "method": "deletePhoto",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 538,
+    "verb": "POST",
+    "path": "/realties/{realty_id}/publish",
+    "controller": "RealtyController",
+    "method": "publish",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 539,
+    "verb": "POST",
+    "path": "/realties/{realty_id}/restore",
+    "controller": "RealtyController",
+    "method": "restore",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 541,
+    "verb": "POST",
+    "path": "/realties/{realty_id}/rooms/",
+    "controller": "RealtyController",
+    "method": "addRoom",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 542,
+    "verb": "PATCH",
+    "path": "/realties/{realty_id}/rooms/{room_id}",
+    "controller": "RealtyController",
+    "method": "updateRoom",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 543,
+    "verb": "DELETE",
+    "path": "/realties/{realty_id}/rooms/{room_id}",
+    "controller": "RealtyController",
+    "method": "deleteRoom",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 545,
+    "verb": "PUT",
+    "path": "/realties/{realty_id}/share",
+    "controller": "RealtyController",
+    "method": "updateShare",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 546,
+    "verb": "PUT",
+    "path": "/realties/{realty_id}/video-url",
+    "controller": "RealtyController",
+    "method": "updateVideoUrl",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 548,
+    "verb": "GET",
+    "path": "/realties/{realty_id}/widget/",
+    "controller": "WidgetController",
+    "method": "getRealtyWidget",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 549,
+    "verb": "POST",
+    "path": "/realties/{realty_id}/widget/order",
+    "controller": "WidgetController",
+    "method": "orderRealtyWidgetItems",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 555,
+    "verb": "GET",
+    "path": "/profile/",
+    "controller": "ProfileController",
+    "method": "getProfile",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 556,
+    "verb": "PATCH",
+    "path": "/profile/",
+    "controller": "ProfileController",
+    "method": "updateProfile",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 557,
+    "verb": "POST",
+    "path": "/profile/avatar",
+    "controller": "ProfileController",
+    "method": "updateAvatar",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 558,
+    "verb": "POST",
+    "path": "/profile/deactivate",
+    "controller": "ProfileController",
+    "method": "deactivateProfile",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 559,
+    "verb": "POST",
+    "path": "/profile/change-password",
+    "controller": "ProfileController",
+    "method": "changePassword",
+    "middleware": "auth:user,throttle:5,1",
+    "without_middleware": ""
+  },
+  {
+    "line": 561,
+    "verb": "POST",
+    "path": "/profile/telegram/generate-link",
+    "controller": "ProfileTelegramController",
+    "method": "generateLink",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 562,
+    "verb": "POST",
+    "path": "/profile/telegram/unbind",
+    "controller": "ProfileTelegramController",
+    "method": "unbind",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 573,
+    "verb": "GET",
+    "path": "/publishings/",
+    "controller": "PublishingController",
+    "method": "getList",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 574,
+    "verb": "POST",
+    "path": "/publishings/",
+    "controller": "PublishingController",
+    "method": "add",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 575,
+    "verb": "GET",
+    "path": "/publishings/charges",
+    "controller": "PublishingController",
+    "method": "getCharges",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 577,
+    "verb": "GET",
+    "path": "/publishings/{publishing_id}/",
+    "controller": "PublishingController",
+    "method": "get",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 578,
+    "verb": "PUT",
+    "path": "/publishings/{publishing_id}/",
+    "controller": "PublishingController",
+    "method": "update",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 579,
+    "verb": "POST",
+    "path": "/publishings/{publishing_id}/archive",
+    "controller": "PublishingController",
+    "method": "archive",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 581,
+    "verb": "POST",
+    "path": "/publishings/{publishing_id}/avito/",
+    "controller": "PublishingController",
+    "method": "addAvito",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 582,
+    "verb": "DELETE",
+    "path": "/publishings/{publishing_id}/avito/",
+    "controller": "PublishingController",
+    "method": "deleteAvito",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 584,
+    "verb": "GET",
+    "path": "/publishings/{publishing_id}/avito/promotions/order/prices",
+    "controller": "AvitoPromotionController",
+    "method": "getPromotionPrices",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 585,
+    "verb": "POST",
+    "path": "/publishings/{publishing_id}/avito/promotions/order",
+    "controller": "AvitoPromotionController",
+    "method": "orderPromotion",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 586,
+    "verb": "POST",
+    "path": "/publishings/{publishing_id}/avito/promotions/request",
+    "controller": "PublishingController",
+    "method": "requestAvitoPromotion",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 588,
+    "verb": "GET",
+    "path": "/publishings/{publishing_id}/avito/statistics",
+    "controller": "AvitoPublishingController",
+    "method": "getAvitoStatistics",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 589,
+    "verb": "GET",
+    "path": "/publishings/{publishing_id}/avito/called-phone-numbers",
+    "controller": "AvitoPublishingController",
+    "method": "getCalledPhoneNumbers",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 590,
+    "verb": "GET",
+    "path": "/publishings/{publishing_id}/avito/calls",
+    "controller": "AvitoPublishingController",
+    "method": "getAvitoCalls",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 593,
+    "verb": "POST",
+    "path": "/publishings/{publishing_id}/cian/",
+    "controller": "PublishingController",
+    "method": "addCian",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 594,
+    "verb": "DELETE",
+    "path": "/publishings/{publishing_id}/cian/",
+    "controller": "PublishingController",
+    "method": "deleteCian",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 595,
+    "verb": "POST",
+    "path": "/publishings/{publishing_id}/cian/promotions/request",
+    "controller": "PublishingController",
+    "method": "requestCianPromotion",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 596,
+    "verb": "GET",
+    "path": "/publishings/{publishing_id}/cian/statistics",
+    "controller": "CianPublishingController",
+    "method": "getCianStatistics",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 597,
+    "verb": "GET",
+    "path": "/publishings/{publishing_id}/cian/called-phone-numbers",
+    "controller": "CianPublishingController",
+    "method": "getCianCalledPhoneNumbers",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 598,
+    "verb": "GET",
+    "path": "/publishings/{publishing_id}/cian/calls",
+    "controller": "CianPublishingController",
+    "method": "getCianCalls",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 600,
+    "verb": "PATCH",
+    "path": "/publishings/{publishing_id}/external-id",
+    "controller": "PublishingController",
+    "method": "setExternalIds",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 601,
+    "verb": "POST",
+    "path": "/publishings/{publishing_id}/prolong",
+    "controller": "PublishingController",
+    "method": "prolong",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 607,
+    "verb": "GET",
+    "path": "/scorings/requests/",
+    "controller": "ScoringRequestsController",
+    "method": "listScoringRequests",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 609,
+    "verb": "GET",
+    "path": "/scorings/requests/{request_id}/",
+    "controller": "ScoringRequestsController",
+    "method": "getScoringRequest",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 610,
+    "verb": "GET",
+    "path": "/scorings/requests/{request_id}/file",
+    "controller": "ScoringRequestsController",
+    "method": "getScoringRequestFile",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 611,
+    "verb": "POST",
+    "path": "/scorings/requests/{request_id}/pay",
+    "controller": "ScoringRequestsController",
+    "method": "payScoringRequest",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 615,
+    "verb": "GET",
+    "path": "/scorings/",
+    "controller": "ScoringsController",
+    "method": "listScorings",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 617,
+    "verb": "GET",
+    "path": "/scorings/{scoring_id}/",
+    "controller": "ScoringsController",
+    "method": "getScoring",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 618,
+    "verb": "POST",
+    "path": "/scorings/{scoring_id}/request",
+    "controller": "ScoringRequestsController",
+    "method": "requestScoring",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 624,
+    "verb": "POST",
+    "path": "/services/charges/order/",
+    "controller": "ServiceController",
+    "method": "orderCharges",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 627,
+    "verb": "GET",
+    "path": "/services/",
+    "controller": "ServiceController",
+    "method": "getServices",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 629,
+    "verb": "GET",
+    "path": "/services/{service_id}/",
+    "controller": "ServiceController",
+    "method": "getService",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 630,
+    "verb": "POST",
+    "path": "/services/{service_id}/request",
+    "controller": "ServiceController",
+    "method": "requestService",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 636,
+    "verb": "GET",
+    "path": "/settings/offer/",
+    "controller": "OfferSettingsController",
+    "method": "get",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 637,
+    "verb": "PUT",
+    "path": "/settings/offer/",
+    "controller": "OfferSettingsController",
+    "method": "save",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 638,
+    "verb": "POST",
+    "path": "/settings/offer/logo",
+    "controller": "OfferSettingsController",
+    "method": "saveLogo",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 639,
+    "verb": "DELETE",
+    "path": "/settings/offer/logo",
+    "controller": "OfferSettingsController",
+    "method": "deleteLogo",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 644,
+    "verb": "POST",
+    "path": "/subscription/cancel",
+    "controller": "SubscriptionController",
+    "method": "cancel",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 645,
+    "verb": "GET",
+    "path": "/subscription/info",
+    "controller": "SubscriptionController",
+    "method": "info",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 646,
+    "verb": "PUT",
+    "path": "/subscription/new-plan",
+    "controller": "SubscriptionController",
+    "method": "updateNewPlan",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 647,
+    "verb": "PUT",
+    "path": "/subscription/payment-method",
+    "controller": "SubscriptionController",
+    "method": "updatePaymentMethod",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 648,
+    "verb": "GET",
+    "path": "/subscription/plans",
+    "controller": "PlanController",
+    "method": "listPlans",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 649,
+    "verb": "POST",
+    "path": "/subscription/resume",
+    "controller": "SubscriptionController",
+    "method": "resume",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 650,
+    "verb": "POST",
+    "path": "/subscription/subscribe",
+    "controller": "SubscriptionController",
+    "method": "subscribe",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 651,
+    "verb": "POST",
+    "path": "/subscription/trial",
+    "controller": "SubscriptionController",
+    "method": "startTrial",
+    "middleware": "auth:user",
+    "without_middleware": ""
+  },
+  {
+    "line": 656,
+    "verb": "GET",
+    "path": "/suggestions/avito/new-developments",
+    "controller": "AvitoSuggestionController",
+    "method": "suggestNewDevelopments",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 659,
+    "verb": "GET",
+    "path": "/suggestions/cian/new-objects",
+    "controller": "CianSuggestionController",
+    "method": "suggestNewObjects",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 661,
+    "verb": "GET",
+    "path": "/suggestions/cities",
+    "controller": "DadataCityController",
+    "method": "getCitySuggestions",
+    "middleware": "auth:user,admin",
+    "without_middleware": ""
+  },
+  {
+    "line": 666,
+    "verb": "POST",
+    "path": "/webhook/cloud-payments/check",
+    "controller": "CloudPaymentsWebhookController",
+    "method": "check",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 667,
+    "verb": "POST",
+    "path": "/webhook/cloud-payments/pay",
+    "controller": "CloudPaymentsWebhookController",
+    "method": "pay",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 668,
+    "verb": "POST",
+    "path": "/webhook/cloud-payments/fail",
+    "controller": "CloudPaymentsWebhookController",
+    "method": "fail",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 670,
+    "verb": "POST",
+    "path": "/webhook/jivo/3752813899114971",
+    "controller": "JivoWebhookController",
+    "method": "handle",
+    "middleware": "",
+    "without_middleware": ""
+  },
+  {
+    "line": 671,
+    "verb": "POST",
+    "path": "/webhook/telegram/{token}",
+    "controller": "TelegramWebhookController",
+    "method": "handle",
+    "middleware": "",
+    "without_middleware": ""
+  }
+]

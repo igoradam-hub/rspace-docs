@@ -1,0 +1,12 @@
+# Auth state for screenshot scripts
+_scripts/.auth-state.json
+# Node cache
+node_modules/
+_scripts/.auth-creds.json
+
+# Local scripts state
+_scripts/node_modules/
+_scripts/.DS_Store
+
+# OS
+.DS_Store
