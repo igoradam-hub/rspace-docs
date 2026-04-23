@@ -185,6 +185,7 @@
   },
   "active": "42d4e6832afc8eac",
   "lastOpenFiles": [
+    "internal/15-known-issues-external-archive.md",
     "_scripts/deploy-to-github.command",
     "assets/screenshots/lk/lk-dashboard-wallet.png",
     "assets/screenshots/lk/lk-reset.png",
@@ -210,7 +211,6 @@
     "_scripts",
     "assets/screenshots/videos",
     "assets/SCREENSHOTS-PLAN.md",
-    "assets/screenshots/admin",
     "_verification/DISCREPANCY-REPORT-2026-04-23.md",
     "_sources/01b-tariffs-actual.md",
     "internal/02-modules/billing.md",
