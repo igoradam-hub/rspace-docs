@@ -10,7 +10,7 @@
 
 ### Обзорные
 - [00. Обзор](./00-overview.md) — продукт, метрики (MRR 105K, 14 paying), команда, глоссарий, навигация
-- [01. Архитектура системы](./01-architecture.md) — high-level карта, 3 репо, версии стеков (Laravel 12, React Router 7.11, Next 15.4.8)
+- [01. Архитектура системы](./01-architecture.md) — high-level карта, 3 репо, версии стеков (Laravel 13, React Router 7.11, Next 15.4.8)
 
 ### Backend — Доменные модули
 → [02. Индекс модулей](./02-modules/README.md)

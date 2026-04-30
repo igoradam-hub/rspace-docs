@@ -22,7 +22,7 @@
                   ▼
        ┌─────────────────────────────────────────────────────┐
        │       api.rspace.pro  (Backend)                     │
-       │       Laravel 12 + PHP 8.4                          │
+       │       Laravel 13 + PHP 8.4                          │
        │       PostgreSQL 17 + Spatie Media Library (S3)     │
        │       Queue: database driver                        │
        │       Sanctum + auth:admin middleware               │
@@ -58,7 +58,7 @@
 |---|---|---|---|---|
 | Лендинг | `rspase/landing/next` | `dev` | `dev` → `premaster` (manual) | Next.js 15 |
 | Кабинет | `rspase/project/frontend` | `main` (заморожен!) | `develop` | React Router 7 |
-| API | `rspase/project/backend` | `master` (заморожен!) | `dev` | Laravel 12 |
+| API | `rspase/project/backend` | `master` (заморожен!) | `dev` | Laravel 13 |
 
 **Важное предупреждение**: у frontend и backend **`main`/`master` — template-ветки**, заморожены на апрель 2025. Реальная разработка — в `develop` и `dev` соответственно. Не путать при клонировании.
 
@@ -132,7 +132,7 @@
 | Компонент | Версия | Назначение |
 |---|---|---|
 | **PHP** | **^8.4** | Runtime |
-| **Laravel** | **^12.0** | Framework |
+| **Laravel** | **^13.0** | Framework |
 | Laravel Sanctum | 4.0 | Token-based API auth |
 | Laravel Tinker | 2.9 | REPL |
 | **Spatie Media Library** | 11.12 | Фото объектов, аватары, документы, S3 |
