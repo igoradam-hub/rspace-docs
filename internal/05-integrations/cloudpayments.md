@@ -138,7 +138,7 @@ Webhook → PaymentMethodService::processPaymentMethodData → PaymentMethod с�
 ### 4. Автопродление подписки
 
 ```
-Cron ProcessSubscriptionRenewalsCommand (ежедневно)
+Cron ProcessSubscriptionRenewalsCommand (каждую минуту через app/Subscriptions/Console/Scheduler.php)
   → найти Subscriptions где ends_at <= today + 1 и status=active
   → для каждой:
     → PaymentService::chargeWithSavedToken(subscription.payment_method, amount)

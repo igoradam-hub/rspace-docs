@@ -39,7 +39,7 @@
 
 ### Структура образов
 
-**Backend (Laravel 12 + PHP 8.4):**
+**Backend (Laravel 13 + PHP 8.4):**
 - Base: `php:8.4-fpm` (Debian-based, **не Alpine** — проверено в `Dockerfile-backend@dev`).
 - Composer install + artisan optimize + key:generate.
 - Output: `rspace_back` контейнер.

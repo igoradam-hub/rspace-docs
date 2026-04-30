@@ -10,7 +10,7 @@
 
 ### Обзорные
 - [00. Обзор](./00-overview.md) — продукт, метрики (MRR 105K, 14 paying), команда, глоссарий, навигация
-- [01. Архитектура системы](./01-architecture.md) — high-level карта, 3 репо, версии стеков (Laravel 12, React Router 7.11, Next 15.4.8)
+- [01. Архитектура системы](./01-architecture.md) — high-level карта, 3 репо, версии стеков (Laravel 13, React Router 7.11, Next 15.4.8)
 
 ### Backend — Доменные модули
 → [02. Индекс модулей](./02-modules/README.md)
@@ -47,7 +47,7 @@
 - [Services / Scorings / Leads / Monitoring](./03-api-reference/admin/services-scorings.md)
 
 ### Data & Integrations
-- [04. База данных](./04-database.md) — PostgreSQL 17 + PostGIS, 156 миграций, доменные кластеры таблиц
+- [04. База данных](./04-database.md) — PostgreSQL 17 + PostGIS, ~160 миграций, доменные кластеры таблиц
 - [05. Интеграции](./05-integrations/README.md):
   - [Avito](./05-integrations/avito.md) · [CIAN](./05-integrations/cian.md) · [ДомКлик](./05-integrations/domclick.md) — классифайды
   - [CloudPayments](./05-integrations/cloudpayments.md) · [AmoCRM](./05-integrations/amocrm.md) — платежи + CRM

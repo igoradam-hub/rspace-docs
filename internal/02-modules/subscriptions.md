@@ -14,9 +14,11 @@
 
 ## Ключевые сущности
 
+> **Тарифы юзеру vs тарифы в БД.** На лендинге и в user-doc'ах перечислены **5 публичных тарифов** (Триал / Профи / Премиум / Ультима / Энтерпрайс). В таблице `plans` на 2026-04-23 — **13 записей**, включая внутренние/legacy: Early Birds, Demo, региональные варианты, архивные. Не путайте: «уровни» (`PlanLevel`) — фиксированный enum (4 шт.: Профи/Премиум/Ультима/Демо), тарифы (`Plan`) — конкретные строки с ценой+регионом, их больше.
+
 | Модель | Путь | Описание |
 |---|---|---|
-| `Plan` | `app/Subscriptions/Models/Plan.php` | Тарифный план. Поля: цена, уровень (Триал/Профи/Премиум/Ультима/Энтерпрайс), активен/архивен, регион (Столица/Регионы) |
+| `Plan` | `app/Subscriptions/Models/Plan.php` | Тарифный план (строка БД). Поля: цена, уровень, активен/архивен, регион (Столица/Регионы). Записей в БД больше, чем тарифов на лендинге |
 | `PlanLevel` | `app/Subscriptions/Models/PlanLevel.php` | Уровень плана (enum-like). Столбцы — идентификатор, сортировка, цвет в UI и пр. |
 | `PlanLevelInfo` | `app/Subscriptions/Models/PlanLevelInfo.php` | Метаданные уровня: название, описание, скидка на услуги |
 | `PlanLevelSettings` | `app/Subscriptions/Models/PlanLevelSettings.php` | **Настраиваемая админом** матрица скидок: скидка на услугу по уровню подписки. Позволяет менять % без релиза |
@@ -129,8 +131,8 @@ payment_method_id     FK         сохранённая карта для авт
 
 | Команда | Класс | Расписание |
 |---|---|---|
-| `subscriptions:process-expiring` | `ProcessExpiringSubscriptionsCommand` | ежедневно (точное расписание в `Scheduler.php`) — уведомления за N дней до окончания |
-| `subscriptions:process-renewals` | `ProcessSubscriptionRenewalsCommand` | ежедневно — запускает автосписание за подписки, у которых `ends_at` наступил |
+| `subscriptions:process-expiring` | `ProcessExpiringSubscriptionsCommand` | **каждую минуту** (см. `app/Subscriptions/Console/Scheduler.php`) — уведомления за N дней до окончания |
+| `subscriptions:process-renewals` | `ProcessSubscriptionRenewalsCommand` | **каждую минуту** — автосписание за подписки, у которых `ends_at` наступил |
 
 `Scheduler.php` (`app/Subscriptions/Console/Scheduler.php`) — регистрация задач в Laravel Scheduler.
 

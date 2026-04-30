@@ -22,7 +22,7 @@
                   ▼
        ┌─────────────────────────────────────────────────────┐
        │       api.rspace.pro  (Backend)                     │
-       │       Laravel 12 + PHP 8.4                          │
+       │       Laravel 13 + PHP 8.4                          │
        │       PostgreSQL 17 + Spatie Media Library (S3)     │
        │       Queue: database driver                        │
        │       Sanctum + auth:admin middleware               │
@@ -35,9 +35,9 @@
 │ AmoCRM (sync лидов)        │    │ POST /webhook/jivo/:token        │
 │ Avito API (публикации)     │    │ POST /webhook/telegram/:token    │
 │ CIAN API  (публикации)     │    └──────────────────────────────────┘
-│ ДомКлик (outbound feed)    │
-│ OpenAI (AI-описания,       │
-│   AI-юрист)                │
+│ ДомКлик — НЕ интегрирован  │
+│ OpenAI (AI-описания только;│
+│   AI-юрист в разработке)   │
 │ Telegram Bot (исходящие)   │
 │ Dadata (suggestions)       │
 │ PostHog (analytics)        │
@@ -58,7 +58,7 @@
 |---|---|---|---|---|
 | Лендинг | `rspase/landing/next` | `dev` | `dev` → `premaster` (manual) | Next.js 15 |
 | Кабинет | `rspase/project/frontend` | `main` (заморожен!) | `develop` | React Router 7 |
-| API | `rspase/project/backend` | `master` (заморожен!) | `dev` | Laravel 12 |
+| API | `rspase/project/backend` | `master` (заморожен!) | `dev` | Laravel 13 |
 
 **Важное предупреждение**: у frontend и backend **`main`/`master` — template-ветки**, заморожены на апрель 2025. Реальная разработка — в `develop` и `dev` соответственно. Не путать при клонировании.
 
@@ -116,7 +116,7 @@
 
 **SSR:** React Router 7 с `@react-router/node` и `@react-router/serve`. Сервер отдаёт HTML с pre-fetched данными, затем гидрируется на клиенте.
 
-**API-клиент:** axios-инстанс с interceptor'ом, который добавляет Bearer-токен из localStorage и refresh'ит при 401. Запросы кешируются через TanStack Query.
+**API-клиент:** axios-инстанс с interceptor'ом, который добавляет Bearer-токен из localStorage. **Refresh-логики нет** — на 401 клиент чистит токен и редиректит на `/login`. Запросы кешируются через TanStack Query.
 
 **Типы:** OpenAPI-схема тянется скриптом `fetch-swagger` из backend'а, генерируется TS-типы (см. `package.json → scripts.fetch-swagger`).
 
@@ -132,7 +132,7 @@
 | Компонент | Версия | Назначение |
 |---|---|---|
 | **PHP** | **^8.4** | Runtime |
-| **Laravel** | **^12.0** | Framework |
+| **Laravel** | **^13.0** | Framework |
 | Laravel Sanctum | 4.0 | Token-based API auth |
 | Laravel Tinker | 2.9 | REPL |
 | **Spatie Media Library** | 11.12 | Фото объектов, аватары, документы, S3 |
@@ -160,28 +160,59 @@
 
 ### Доменная структура
 
-Бэкенд структурирован по доменам (модулям). Каждый домен — отдельная папка в `app/`:
+Бэкенд структурирован по доменам, **но не все домены полностью переехали** в свою top-level папку. Часть живёт гибридом: контроллеры в `app/Http/Controllers/<Domain>/`, модели в `app/Models/<Domain>/`. Ниже — фактическое состояние на `origin/dev` (2026-04-29):
 
 ```
 backend/app/
-├── Identity/       ← регистрация, SMS, токены
-├── Realty/         ← квартиры, дома, участки, медиа
-├── Publishings/    ← Avito/CIAN/DomClick публикации
-├── Leads/          ← входящие лиды
-├── Subscriptions/  ← тарифы, активации
-├── Billing/        ← баланс, CloudPayments, промокоды
-├── Services/       ← AI-юрист, заявки на услуги
-├── Scoring/        ← проверки собственника/объекта
-├── Widget/         ← встраиваемый блок услуг
-├── Onboarding/     ← прогресс пользователя
-├── Telegram/       ← бот-интеграция
-├── AmoCrm/         ← синхронизация лидов в CRM
-├── Dadata/         ← прокси подсказок
-├── OpenAi/         ← клиент генерации
-└── Admin/          ← админ-контроллеры
+├── AmoCrm/         ← синхронизация событий в AmoCRM (полный домен)
+├── Api/            ← внешние API-клиенты (YandexDiskApiClient и пр.)
+├── Console/        ← artisan-команды
+├── Contracts/      ← интерфейсы Service/DataObject
+├── Core/           ← общий kernel (Optional, EventService, SettingsService, Date VO)
+├── Crm/            ← Crm::Clients — встроенная мини-CRM «Мои клиенты»
+├── Entities/       ← legacy domain entities (Realty/Variations/* живут тут)
+├── Events/         ← Laravel events
+├── Exceptions/     ← exception handler + custom exceptions
+├── Http/           ← legacy hub (Controllers/Admin/*, Controllers/Billing/*, Controllers/Services/* и пр.)
+├── Identity/       ← регистрация, SMS, токены, профиль (полный домен)
+├── Jivo/           ← JivoSite webhook (полный домен)
+├── Jobs/           ← Laravel queue jobs (Billing, Cian, Avito и т.д.)
+├── Leads/          ← лиды (полный домен)
+├── Listeners/      ← Laravel event listeners (часть здесь, часть в доменных папках)
+├── Models/         ← Eloquent (Models/Realty/, Models/Billing/, Models/Publishings/, Models/Admin/...)
+├── Monitoring/     ← внешние балансы, Use Cases (полный домен)
+├── Notifications/  ← Laravel notifications (legacy для SMS-кодов)
+├── Onboarding/     ← прогресс юзера (полный домен)
+├── OpenAi/         ← клиент генерации текста (полный домен)
+├── OpenApi/        ← Swagger response helpers
+├── Policies/       ← EnumPolicy + #[Permission] attribute
+├── Providers/      ← Service providers
+├── Publishings/    ← Avito/CIAN (полный домен; DomClick НЕ реализован)
+├── QueryBuilders/  ← legacy query builders
+├── Realty/         ← Realty/Prompts + Realty/Realty + Realty/Widget (частичная DDD-миграция)
+├── Reporting/      ← Telegram-алерты в ops-чаты (полный домен)
+├── Rules/          ← Laravel validation rules
+├── Scoring/        ← проверки собственника/объекта (полный домен)
+├── Services/       ← Laravel SERVICES (бизнес-логика; НЕ путать с доменом «Услуги»!)
+├── Sms/            ← Notification channel + Sms drivers (полный домен)
+├── Subscriptions/  ← тарифы, активации, renewals (полный домен)
+└── Telegram/       ← 2 бота, BindingService, ProxyHttpClient (полный домен)
 ```
 
-Подробный разбор каждого модуля — [02. Домены и модули](./02-modules/).
+**Где живут домены БЕЗ отдельной top-level папки:**
+
+| Домен (по бизнесу) | Контроллеры | Модели | Сервисы |
+|---|---|---|---|
+| **Billing** | `app/Http/Controllers/Billing/*` | `app/Models/Billing/*` | `app/Services/Billing/*` |
+| **Услуги (Services как домен)** | `app/Http/Controllers/Services/*` | `app/Models/Services/*` | `app/Services/Services/*` |
+| **Admin** | `app/Http/Controllers/Admin/*` | `app/Models/Admin/*` | — |
+| **Dadata / Suggestions** | `app/Http/Controllers/Proxy/DadataController.php` + `Http/Controllers/Dadata/Cities/*` + `Http/Controllers/Suggestions/*` | — | через SDK `hflabs/dadata` |
+| **Feeds** | `app/Http/Controllers/Feeds/*` | `app/Models/Feeds/*` | — |
+| **Webhook (CloudPayments)** | `app/Http/Controllers/Webhook/CloudPayments/*` | — | — |
+
+**Тенденция:** новые модули создаются как top-level папки (Onboarding, Realty/Prompts, Crm, Monitoring, Reporting). Старые (Billing, домен «Услуги», Admin) остаются в legacy-структуре `Http/Controllers/` + `Models/`. Полный переход к DDD-структуре — open task, см. [14-tech-debt.md](14-tech-debt.md).
+
+Подробный разбор каждого домена — [02. Домены и модули](./02-modules/).
 
 ### API Reference
 
@@ -218,11 +249,11 @@ User (ЛК) → POST api/realties (draft)
          → PUT api/realties/:id/apartment (детали)
          → POST api/realties/:id/photos (загрузка в S3 через Spatie Media)
          → PUT api/realties/:id/location, deal-terms, description
-         → POST api/realties/:id/publish (targets: avito/cian/domclick)
+         → POST api/realties/:id/publish (targets: avito | cian)
 Backend  → Publishings::service → AvitoPublishingService / CianPublishingService
          → внешний API Avito/CIAN → external_id сохраняется
-         → для ДомКлик — obj записывается в feed XML/JSON на S3
          → стата pulls'ится периодически (scheduled command)
+         → ДомКлик в коде НЕ интегрирован — ни endpoint'а feed, ни env-переменных
 ```
 
 ### 3. Платёж по подписке

@@ -43,7 +43,7 @@
 | Лендинг | `rspace.pro` | Next.js 15.4 + React 19 + Tailwind v4 + Radix UI | `git.rs-app.ru/rspase/landing/next` |
 | Кабинет агента | `lk.rspace.pro` | React Router 7.5 + Chakra UI v3 + TanStack Query + Jotai + Axios | `git.rs-app.ru/rspase/project/frontend` |
 | Админка | `admin.rspace.pro` | (frontend-репозиторий вне GitLab), backend — тот же | см. [Internal 06: Админка](./06-admin.md) |
-| Backend API | `api.rspace.pro` | Laravel 12 + PostgreSQL 17 + Sanctum + Spatie Media Library | `git.rs-app.ru/rspase/project/backend` |
+| Backend API | `api.rspace.pro` | Laravel 13 + PostgreSQL 17 + Sanctum + Spatie Media Library | `git.rs-app.ru/rspase/project/backend` |
 
 ## Команда
 
@@ -92,7 +92,7 @@
           │
 ┌─────────▼────────────────────────────────────────┐
 │   Backend API (api.rspace.pro)                   │
-│   Laravel 12 + Sanctum + PostgreSQL 17           │
+│   Laravel 13 + Sanctum + PostgreSQL 17           │
 │   + Queue (database) + Spatie Media Library      │
 │                                                  │
 │   Домены: Identity, Realty, Publishings,         │
@@ -141,7 +141,7 @@
 
 | Термин | Значение |
 |---|---|
-| **Backend** | Laravel 12 API, репо `project/backend` |
+| **Backend** | Laravel 13 API, репо `project/backend` |
 | **Frontend** | React Router 7 SSR-приложение кабинета агента, репо `project/frontend` |
 | **Landing** | Next.js 15 маркетинговый сайт, репо `landing/next` |
 | **lk.rspace.pro** | Домен кабинета |

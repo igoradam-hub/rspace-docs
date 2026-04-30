@@ -188,9 +188,9 @@ Custom-Rule'ы в `app/Identity/Rules/`:
 
 | Страница кабинета | URL frontend | Использует |
 |---|---|---|
-| Регистрация | `/auth/register` | POST `/auth/register/send-code` → `/auth/register` |
-| Вход | `/auth/login` | POST `/auth/login` |
-| Восстановление | `/auth/reset-password` | POST `/auth/reset-password/send-code` → `/auth/reset-password` |
+| Регистрация | `/registration` | POST `/auth/register/send-code` → `/auth/register` |
+| Вход | `/login` | POST `/auth/login` |
+| Восстановление | `/reset` | POST `/auth/reset-password/send-code` → `/auth/reset-password` |
 | Профиль | `/my/profile` | GET/PATCH `/profile`, POST `/profile/avatar` |
 | Привязка Telegram | `/my/profile` (кнопка) | POST `/profile/telegram/generate-link` |
 
