@@ -77,10 +77,10 @@ routes/
 ├── offer.tsx                                   /offer/{id}   (публичная карточка объекта)
 │
 ├── auth/
-│   ├── login.tsx                               /auth/login
-│   ├── logout.tsx                              /auth/logout
-│   ├── registration.tsx                        /auth/registration
-│   └── reset.tsx                               /auth/reset
+│   ├── login.tsx                               /login         (под AuthLayout)
+│   ├── logout.tsx                              /logout        (top-level, без layout)
+│   ├── registration.tsx                        /registration  (под AuthLayout)
+│   └── reset.tsx                               /reset         (под AuthLayout)
 │
 ├── docs/
 │   ├── offer.tsx                               /docs/offer    (оферта)
@@ -262,7 +262,7 @@ deploy_prod:
 - Отображение дружелюбной страницы с кнопкой «Попробовать снова».
 
 ### Auth guard
-- Layout `my.tsx` — проверяет токен в localStorage, redirect на `/auth/login` если не авторизован.
+- Layout `my.tsx` — проверяет токен в localStorage, redirect на `/login` если не авторизован.
 - Публичные роуты (`/offer/{id}`, `/docs/*`) — без проверки.
 
 ### Формы
