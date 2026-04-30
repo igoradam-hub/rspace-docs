@@ -47,7 +47,7 @@
 - [Services / Scorings / Leads / Monitoring](./03-api-reference/admin/services-scorings.md)
 
 ### Data & Integrations
-- [04. База данных](./04-database.md) — PostgreSQL 17 + PostGIS, 156 миграций, доменные кластеры таблиц
+- [04. База данных](./04-database.md) — PostgreSQL 17 + PostGIS, ~160 миграций, доменные кластеры таблиц
 - [05. Интеграции](./05-integrations/README.md):
   - [Avito](./05-integrations/avito.md) · [CIAN](./05-integrations/cian.md) · [ДомКлик](./05-integrations/domclick.md) — классифайды
   - [CloudPayments](./05-integrations/cloudpayments.md) · [AmoCRM](./05-integrations/amocrm.md) — платежи + CRM

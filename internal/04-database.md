@@ -22,7 +22,7 @@
 
 ## Структура: кластеры таблиц
 
-Всего в `database/migrations/` на 2026-04-23 — **156 миграций**, создающих **73 уникальные таблицы** (остальное — alter'ы). Ниже — разбивка по доменам с **точными именами таблиц из кода** (машинно-сверено 2026-04-23, см. `_verification/migrations.json`).
+Всего в `database/migrations/` на 2026-04-29 — **~160 миграций** (на 2026-04-23 было 156; 159 на момент аудита 2026-04-29), создающих **~73 уникальные таблицы** (остальное — alter'ы). Точное число можно получить через `find database/migrations -name "*.php" | wc -l` на ветке `dev`. Ниже — разбивка по доменам с **точными именами таблиц из кода**.
 
 | Домен | Ключевые таблицы | Комментарий |
 |---|---|---|
@@ -222,7 +222,7 @@ Columns:
 
 ## Тренды развития схемы (по миграциям)
 
-Из 156 миграций видно **эволюцию**:
+Из ~160 миграций видно **эволюцию**:
 
 ### Самые «живые» таблицы (create + alter)
 
@@ -332,7 +332,7 @@ php artisan migrate:rollback
 - **Индексы на прод** — не было full-scan аудита. TBD.
 - **Storage для media** — S3 (Flysystem), но alternative local — если используется, диск может забиваться.
 - **Таблица `sessions` отсутствует** — подтверждено: её миграции нет в `database/migrations/`. API stateless через Sanctum. ✓
-- **`idempotency_events`** — если встречается в коде, это паттерн защиты от дубликатов webhook'ов. Посмотреть, используется ли реально.
+- **`idempotency_events`** — таблица существует (миграции `2026_02_13_152747_create_idempotency_events_table.php` + `2026_02_26_160527_update_idempotency_events_table.php`). Используется как паттерн защиты от дубликатов webhook'ов: CloudPayments и Telegram могут слать `pay`/`message_received` повторно при сетевых сбоях; UNIQUE-ключ в этой таблице фиксирует уже обработанные events и не даёт двойной обработки.
 
 ## Связанные разделы
 
@@ -344,5 +344,5 @@ php artisan migrate:rollback
 
 ## Ссылки GitLab
 
-- [database/migrations/](https://git.rs-app.ru/rspase/project/backend/-/tree/dev/database/migrations) — 156 миграций.
+- [database/migrations/](https://git.rs-app.ru/rspase/project/backend/-/tree/dev/database/migrations) — ~160 миграций.
 - [app/Models/](https://git.rs-app.ru/rspase/project/backend/-/tree/dev/app/Models) — Eloquent-модели.
