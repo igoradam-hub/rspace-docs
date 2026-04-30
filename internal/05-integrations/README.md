@@ -16,6 +16,7 @@
 | **JivoSite** | чаты | webhook in | [jivosite.md](./jivosite.md) | 5 |
 | **Dadata** | suggestions | outbound | [dadata.md](./dadata.md) | 5 |
 | **Yandex Metrika** | аналитика | outbound | [yandex-metrika.md](./yandex-metrika.md) | 9 |
+| **Yandex.Disk + Google Sheets** | импорт лидов | pull-источник | [yandex-disk-leads.md](./yandex-disk-leads.md) | 9 |
 | **PostHog** | аналитика | outbound | [posthog.md](./posthog.md) | 9 |
 | **SMS** | уведомления | outbound | [sms.md](./sms.md) | 5 |
 
