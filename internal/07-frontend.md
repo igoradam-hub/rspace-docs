@@ -125,7 +125,7 @@ routes/
 
 `app/api/` содержит:
 - **axios-инстанс** с interceptor'ом, добавляющим Bearer-токен из localStorage.
-- **Refresh-logic** при `401` (если refresh-token flow внедрён).
+- **На `401`:** клиент чистит токен из localStorage и редиректит на `/login`. Refresh-token flow в коде НЕ реализован — Sanctum-токены имеют фиксированный TTL (1 день обычный, 1 месяц с `remember_me`), пользователь логинится заново после истечения.
 - **Типы** — генерируются из `swagger.json` (backend OpenAPI) скриптом `pnpm fetch-swagger` / `./fetch-swagger.sh`.
 - **Хуки React Query** вокруг каждого endpoint — например `useListings()`, `useSubscription()`.
 

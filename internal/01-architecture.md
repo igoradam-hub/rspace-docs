@@ -116,7 +116,7 @@
 
 **SSR:** React Router 7 с `@react-router/node` и `@react-router/serve`. Сервер отдаёт HTML с pre-fetched данными, затем гидрируется на клиенте.
 
-**API-клиент:** axios-инстанс с interceptor'ом, который добавляет Bearer-токен из localStorage и refresh'ит при 401. Запросы кешируются через TanStack Query.
+**API-клиент:** axios-инстанс с interceptor'ом, который добавляет Bearer-токен из localStorage. **Refresh-логики нет** — на 401 клиент чистит токен и редиректит на `/login`. Запросы кешируются через TanStack Query.
 
 **Типы:** OpenAPI-схема тянется скриптом `fetch-swagger` из backend'а, генерируется TS-типы (см. `package.json → scripts.fetch-swagger`).
 
