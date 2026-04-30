@@ -21,7 +21,7 @@
 
 | Модель | Описание |
 |---|---|
-| `Realty` | Корневая сущность объекта. Содержит тип (`apartment`/`house`/`land_plot`), статус, общую цену, ссылки на подтипы |
+| `Realty` | Корневая сущность объекта. Содержит **6-значный** `RealtyType` (см. ниже), статус, общую цену, ссылки на подтипы |
 | `Apartment` | Данные квартиры: этаж, комнаты, площади, ремонт, вид из окон |
 | `ApartmentBuilding` | Данные здания: год постройки, тип материала, лифт, парковка, отопление, газ, водоснабжение |
 | `House` | Данные дома: материал стен, этажность, общая/жилая площадь, тип канализации, отопление |
@@ -37,20 +37,38 @@
 
 Все перечисляемые значения — отдельные таблицы / классы: `RealtyType`, `RealtyStatus`, `RealtyAggregatedStatus`, `ApartmentType`, `ApartmentRoomType`, `ApartmentBuildingType`, `ApartmentBuildingParking`, `ApartmentBuildingHeatingSystem`, `ApartmentBuildingWaterSystem`, `ApartmentWindowsView`, `HouseType`, `HouseMaterial`, `HouseCondition`, `HouseHeatingType`, `HouseBathroomLocation`, `HouseLandType`, `LandPlotType`, `DrainageType`, `GasType`, `WaterType`, `RepairType`, `RoomCount`, `PhotoCategory`, `RealtyDealTermsCommissionType`, `RealtyDealTermsCommissionShare`, `RealtyDealTermsSellType`, `RealtyDealTermsHeardFrom`, `NewApartmentInfoDecoration`, `NewApartmentInfoPersonType`, `RealtyOwnerInfoType`, `RealtyOwnerInfoPublishedBy`.
 
-### Типы подобъектов (по `realty.type`)
+### `RealtyType` — 6 значений (источник: `app/Models/Realty/RealtyType.php` на origin/dev)
 
-```
-realty.type = 'apartment'   → связан с apartment (hasOne), apartment → apartment_building
-            = 'house'       → связан с house (hasOne)
-            = 'land_plot'   → связан с land_plot (hasOne)
-```
+Реальный enum имеет **6 вариаций**, не 3. Они соответствуют шести бизнес-сущностям через их под-таблицы:
 
-### Статусы
+| Enum case | string value | Русское имя | Под-сущность | Группа `type()` |
+|---|---|---|---|---|
+| `ApartmentNew` | `apartment_new` | Новостройка | `apartments` + `apartment_buildings` + `new_apartment_info` | Квартиры |
+| `ApartmentSecondary` | `apartment_secondary` | Вторичка | `apartments` + `apartment_buildings` | Квартиры |
+| `Share` | `share` | Доля | `apartments` + `apartment_buildings` + `shares` | Комнаты |
+| `Room` | `room` | Комната | `apartments` + `apartment_buildings` + `rooms` | Комнаты |
+| `LandPlot` | `land_plot` | Земельный участок | `realty_land_plots` | Земельные участки |
+| `House` | `house` | Дома/дача/коттедж/таунхаус | `realty_houses` | Дома/дачи/коттеджи/таунхаусы |
 
-Два уровня:
+Геттеры на enum: `hasApartmentInfo()`, `hasApartmentBuildingInfo()`, `hasNewApartmentInfo()`, `hasRoomsInfo()`, `hasShareInfo()`, `hasHouseInfo()`, `hasLandPlotInfo()`, `hasOwnerInfo()` — определяют какие под-таблицы заполняются.
 
-- `realty.status` — внутренний статус (`draft`, `active`, `archived`, …).
-- `realty.aggregated_status` — сводный (учитывает публикации на площадках): `draft`, `in_moderation`, `published`, `archived`, `rejected`.
+⚠️ **User-facing документация говорит о «3 типах» (квартира / дом / участок)** — это UX-упрощение, не API-реальность. Под капотом всегда 6 вариаций.
+
+### `RealtyStatus` — 3 значения (источник: `app/Models/Realty/RealtyStatus.php`)
+
+| Enum case | string value | Русское имя |
+|---|---|---|
+| `DRAFT` | `draft` | Черновик |
+| `NEW` | `new` | Создан |
+| `ARCHIVED` | `archived` | Архив |
+
+Это **внутренний** статус самого объекта.
+
+### `RealtyAggregatedStatus` — сводный по площадкам
+
+Учитывает состояние публикаций (Avito + ЦИАН). Возможные значения: `draft`, `in_moderation`, `published`, `archived`, `rejected`. Это поле, которое юзеру виднее всего в списке объектов.
+
+⚠️ **User-facing документация мешает эти два уровня:** «Черновик / На модерации / Опубликован / Отклонён / В архиве» — это смесь `RealtyStatus` (Черновик/Архив) и `RealtyAggregatedStatus` (На модерации/Опубликован/Отклонён). Для пользователя это выглядит цельно, но в коде — два разных поля.
 
 ### Полиморфные связи
 

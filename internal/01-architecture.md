@@ -160,28 +160,59 @@
 
 ### Доменная структура
 
-Бэкенд структурирован по доменам (модулям). Каждый домен — отдельная папка в `app/`:
+Бэкенд структурирован по доменам, **но не все домены полностью переехали** в свою top-level папку. Часть живёт гибридом: контроллеры в `app/Http/Controllers/<Domain>/`, модели в `app/Models/<Domain>/`. Ниже — фактическое состояние на `origin/dev` (2026-04-29):
 
 ```
 backend/app/
-├── Identity/       ← регистрация, SMS, токены
-├── Realty/         ← квартиры, дома, участки, медиа
-├── Publishings/    ← Avito/CIAN публикации (DomClick не реализован)
-├── Leads/          ← входящие лиды
-├── Subscriptions/  ← тарифы, активации
-├── Billing/        ← баланс, CloudPayments, промокоды
-├── Services/       ← AI-юрист, заявки на услуги
-├── Scoring/        ← проверки собственника/объекта
-├── Widget/         ← встраиваемый блок услуг
-├── Onboarding/     ← прогресс пользователя
-├── Telegram/       ← бот-интеграция
-├── AmoCrm/         ← синхронизация лидов в CRM
-├── Dadata/         ← прокси подсказок
-├── OpenAi/         ← клиент генерации
-└── Admin/          ← админ-контроллеры
+├── AmoCrm/         ← синхронизация событий в AmoCRM (полный домен)
+├── Api/            ← внешние API-клиенты (YandexDiskApiClient и пр.)
+├── Console/        ← artisan-команды
+├── Contracts/      ← интерфейсы Service/DataObject
+├── Core/           ← общий kernel (Optional, EventService, SettingsService, Date VO)
+├── Crm/            ← Crm::Clients — встроенная мини-CRM «Мои клиенты»
+├── Entities/       ← legacy domain entities (Realty/Variations/* живут тут)
+├── Events/         ← Laravel events
+├── Exceptions/     ← exception handler + custom exceptions
+├── Http/           ← legacy hub (Controllers/Admin/*, Controllers/Billing/*, Controllers/Services/* и пр.)
+├── Identity/       ← регистрация, SMS, токены, профиль (полный домен)
+├── Jivo/           ← JivoSite webhook (полный домен)
+├── Jobs/           ← Laravel queue jobs (Billing, Cian, Avito и т.д.)
+├── Leads/          ← лиды (полный домен)
+├── Listeners/      ← Laravel event listeners (часть здесь, часть в доменных папках)
+├── Models/         ← Eloquent (Models/Realty/, Models/Billing/, Models/Publishings/, Models/Admin/...)
+├── Monitoring/     ← внешние балансы, Use Cases (полный домен)
+├── Notifications/  ← Laravel notifications (legacy для SMS-кодов)
+├── Onboarding/     ← прогресс юзера (полный домен)
+├── OpenAi/         ← клиент генерации текста (полный домен)
+├── OpenApi/        ← Swagger response helpers
+├── Policies/       ← EnumPolicy + #[Permission] attribute
+├── Providers/      ← Service providers
+├── Publishings/    ← Avito/CIAN (полный домен; DomClick НЕ реализован)
+├── QueryBuilders/  ← legacy query builders
+├── Realty/         ← Realty/Prompts + Realty/Realty + Realty/Widget (частичная DDD-миграция)
+├── Reporting/      ← Telegram-алерты в ops-чаты (полный домен)
+├── Rules/          ← Laravel validation rules
+├── Scoring/        ← проверки собственника/объекта (полный домен)
+├── Services/       ← Laravel SERVICES (бизнес-логика; НЕ путать с доменом «Услуги»!)
+├── Sms/            ← Notification channel + Sms drivers (полный домен)
+├── Subscriptions/  ← тарифы, активации, renewals (полный домен)
+└── Telegram/       ← 2 бота, BindingService, ProxyHttpClient (полный домен)
 ```
 
-Подробный разбор каждого модуля — [02. Домены и модули](./02-modules/).
+**Где живут домены БЕЗ отдельной top-level папки:**
+
+| Домен (по бизнесу) | Контроллеры | Модели | Сервисы |
+|---|---|---|---|
+| **Billing** | `app/Http/Controllers/Billing/*` | `app/Models/Billing/*` | `app/Services/Billing/*` |
+| **Услуги (Services как домен)** | `app/Http/Controllers/Services/*` | `app/Models/Services/*` | `app/Services/Services/*` |
+| **Admin** | `app/Http/Controllers/Admin/*` | `app/Models/Admin/*` | — |
+| **Dadata / Suggestions** | `app/Http/Controllers/Proxy/DadataController.php` + `Http/Controllers/Dadata/Cities/*` + `Http/Controllers/Suggestions/*` | — | через SDK `hflabs/dadata` |
+| **Feeds** | `app/Http/Controllers/Feeds/*` | `app/Models/Feeds/*` | — |
+| **Webhook (CloudPayments)** | `app/Http/Controllers/Webhook/CloudPayments/*` | — | — |
+
+**Тенденция:** новые модули создаются как top-level папки (Onboarding, Realty/Prompts, Crm, Monitoring, Reporting). Старые (Billing, домен «Услуги», Admin) остаются в legacy-структуре `Http/Controllers/` + `Models/`. Полный переход к DDD-структуре — open task, см. [14-tech-debt.md](14-tech-debt.md).
+
+Подробный разбор каждого домена — [02. Домены и модули](./02-modules/).
 
 ### API Reference
 
