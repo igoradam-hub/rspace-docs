@@ -18,7 +18,7 @@
 
 Отправить SMS с 4-значным кодом для подтверждения регистрации.
 
-**Throttle:** `register_sms_code` — 1 запрос в 90 секунд на один номер.
+**Throttle:** `register_sms_code` — 1 запрос в 90 секунд **по IP клиента** (не по номеру телефона). Юзеры за одним NAT/публичным IP делят лимит.
 
 **Request body:**
 ```json
@@ -206,10 +206,12 @@ curl -X POST https://api.rspace.pro/auth/login \
 
 ## Безопасность
 
-- Все `/auth/*/send-code` — **строгий throttle** на номер телефона.
-- Коды верификации — **одноразовые**, TTL 5 минут, изолированы по `action` (`register` ≠ `password_reset`).
+- Все `/auth/*/send-code` — **строгий throttle по IP** (1 запрос/90 сек). Юзеры за одним NAT/корпоративным IP делят лимит.
+- **`POST /auth/register` сам по себе НЕ throttled** — только этап SMS-кода (`/auth/register/send-code`). Это design choice; даёт теоретическую возможность брутфорса 4-значного кода (10000 попыток за раз). Если решим закрыть — добавить `RateLimiter::for('register', ...)` и `->middleware('throttle:register')` на роут.
+- Коды верификации — **одноразовые**, TTL 5 минут, изолированы по `action` (`register` ≠ `password_reset`). Хешированы через `Hash::make`, верификация через `Hash::check` в цикле.
 - Логи не содержат пароли и коды.
 - Деактивированные пользователи (`active=false`) получают `400 user_inactive` на `/login`.
+- **Test backdoor:** при `APP_DEBUG=true` доступен `POST /test/auth/login/{user_id}` — выдаёт токен любому юзеру без пароля. **Прод обязан иметь `APP_DEBUG=false`.**
 
 ## OpenAPI
 

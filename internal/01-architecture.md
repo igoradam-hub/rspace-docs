@@ -35,9 +35,9 @@
 │ AmoCRM (sync лидов)        │    │ POST /webhook/jivo/:token        │
 │ Avito API (публикации)     │    │ POST /webhook/telegram/:token    │
 │ CIAN API  (публикации)     │    └──────────────────────────────────┘
-│ ДомКлик (outbound feed)    │
-│ OpenAI (AI-описания,       │
-│   AI-юрист)                │
+│ ДомКлик — НЕ интегрирован  │
+│ OpenAI (AI-описания только;│
+│   AI-юрист в разработке)   │
 │ Telegram Bot (исходящие)   │
 │ Dadata (suggestions)       │
 │ PostHog (analytics)        │
@@ -166,7 +166,7 @@
 backend/app/
 ├── Identity/       ← регистрация, SMS, токены
 ├── Realty/         ← квартиры, дома, участки, медиа
-├── Publishings/    ← Avito/CIAN/DomClick публикации
+├── Publishings/    ← Avito/CIAN публикации (DomClick не реализован)
 ├── Leads/          ← входящие лиды
 ├── Subscriptions/  ← тарифы, активации
 ├── Billing/        ← баланс, CloudPayments, промокоды
@@ -218,11 +218,11 @@ User (ЛК) → POST api/realties (draft)
          → PUT api/realties/:id/apartment (детали)
          → POST api/realties/:id/photos (загрузка в S3 через Spatie Media)
          → PUT api/realties/:id/location, deal-terms, description
-         → POST api/realties/:id/publish (targets: avito/cian/domclick)
+         → POST api/realties/:id/publish (targets: avito | cian)
 Backend  → Publishings::service → AvitoPublishingService / CianPublishingService
          → внешний API Avito/CIAN → external_id сохраняется
-         → для ДомКлик — obj записывается в feed XML/JSON на S3
          → стата pulls'ится периодически (scheduled command)
+         → ДомКлик в коде НЕ интегрирован — ни endpoint'а feed, ни env-переменных
 ```
 
 ### 3. Платёж по подписке
